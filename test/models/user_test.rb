@@ -36,4 +36,7 @@ class UserTest < ActiveSupport::TestCase
     assert_not duplicate_user.valid?
   end
   
+  test "ダイジェストが存在しない場合のauthenticated?の検証" do
+    assert_not @user.authenticated?("")
+  end
 end
