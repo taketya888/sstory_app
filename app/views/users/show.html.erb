@@ -1,0 +1,5 @@
+<% if current_user?(@user) %>
+<%= link_to "削除" , @user , method: :delete, 
+                               class: "btn btn-lg btn-primary",
+                               data: { confirm: "本当によろしいですか？"} %>
+<% end %>

@@ -10,7 +10,15 @@ $gray-medium-light: #eaeaea;
 }
 
 body {
-  padding-top: 40px;
+  padding-top: 60px;
+}
+
+section {
+  overflow: auto;
+}
+
+textarea {
+  resize: vertical;
 }
 
 .center {
@@ -21,11 +29,29 @@ body {
   }
 }
 
+h1, h2, h3, h4, h5, h6 {
+  line-height: 1;
+}
+
 h1 {
   font-size: 3em;
   letter-spacing: -2px;
   margin-bottom: 30px;
   text-align: center;
+}
+
+h2 {
+  font-size: 1.2em;
+  letter-spacing: -1px;
+  margin-bottom: 30px;
+  text-align: center;
+  font-weight: normal;
+  color: $gray-light;
+}
+
+p {
+  font-size: 1.1em;
+  line-height: 1.7em;
 }
 /* header */
 
@@ -41,6 +67,30 @@ h1 {
   &:hover {
     color: default;
     text-decoration: none;
+  }
+}
+
+footer {
+  margin-top: 45px;
+  padding-top: 5px;
+  border-top: 1px solid #eaeaea;
+  color: #777;
+  a {
+    color: #555;
+    &:hover {
+      color: #222;
+    }
+  }
+  small {
+    float: left;
+  }
+  ul {
+    float: right;
+    list-style: none;
+    li {
+      float: left;
+      margin-left: 15px;
+    }
   }
 }
 

@@ -7,6 +7,7 @@ class UsersEditTest < ActionDispatch::IntegrationTest
   end
   
   test "編集失敗" do
+    log_in_as(@user)
     get edit_user_path(@user)
     assert_template "users/edit"
     patch user_path(@user), params: { user: { name: "",
@@ -16,9 +17,10 @@ class UsersEditTest < ActionDispatch::IntegrationTest
     assert_template "users/edit"
   end
   
-  test "編集成功" do
+  test "編集成功withフレンドフォロワーリーディング" do
     get edit_user_path(@user)
-    assert_template "users/edit"
+    log_in_as(@user)
+    assert_redirected_to edit_user_url(@user)
     name = "Foobar"
     email = "foo@bar.com"
     patch user_path(@user), params: { user: { name: name,
@@ -30,5 +32,6 @@ class UsersEditTest < ActionDispatch::IntegrationTest
     @user.reload
     assert_equal name, @user.name
     assert_equal email, @user.email
+    assert session[:forwarding_url].nil?
   end
 end
