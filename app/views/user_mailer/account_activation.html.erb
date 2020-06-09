@@ -1,0 +1,9 @@
+<h1>起承転結（仮）</h1>
+<p>こんにちは<%= @user.name %></p>
+<p>ようこそ、起承転結（仮）へ</p>
+<p>
+<h3>
+<%= link_to "アカウント登録完了", edit_account_activation_url(@user.activation_token, 
+                                                              email: @user.email)%>
+</h3>
+をクリックしてアカウント登録を完了させてください</p>

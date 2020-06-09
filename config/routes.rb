@@ -11,4 +11,5 @@ Rails.application.routes.draw do
   get 'static_pages/help'
   
   resources :users
+  resources :account_activations, only: [:edit]
 end
