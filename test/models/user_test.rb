@@ -39,4 +39,13 @@ class UserTest < ActiveSupport::TestCase
   test "ダイジェストが存在しない場合のauthenticated?の検証" do
     assert_not @user.authenticated?(:remember, "")
   end
+  
+  test "associated stories should be destroyed" do
+    @user.save
+    @user.stories.create!(start_text: "起", consent_text: "承",
+                          terning_text: "転", finish_text: "結")
+    assert_difference "Story.count", -1 do
+      @user.destroy
+    end
+  end
 end

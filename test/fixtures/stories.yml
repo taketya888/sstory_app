@@ -1,0 +1,15 @@
+orange:
+  start_text:   "起"
+  consent_text: "承"
+  terning_text: "転"
+  finish_text:  "結"
+  created_at: <%= 10.minutes.ago %>
+  user: michael
+
+tau_manifesto:
+  start_text:   "起"
+  consent_text: "承"
+  terning_text: "転"
+  finish_text:  "結"
+  created_at: <%= 10.minutes.ago %>
+  user: mayoi
