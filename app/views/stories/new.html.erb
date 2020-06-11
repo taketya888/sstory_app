@@ -1,7 +1,8 @@
 <h1>小噺作成</h1>
 <%= form_for(@story) do |f|%>
-    <% render "shared/error_messages", object: f.object %>
-    
+    <%= render "shared/error_messages", object: f.object %>
+        <%= f.label :タイトル %>
+        <%= f.text_field :title, class:"form-control"%>
         <%= f.label :起 %>
         <%= f.text_area :start_text, class:"form-control"%>
         <%= f.label :承 %>

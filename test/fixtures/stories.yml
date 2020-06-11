@@ -1,4 +1,5 @@
 orange:
+  title: "モザイクカケラ"
   start_text:   "起"
   consent_text: "承"
   terning_text: "転"
@@ -6,7 +7,8 @@ orange:
   created_at: <%= 10.minutes.ago %>
   user: michael
 
-tau_manifesto:
+peach:
+  title: "モザイクだらけ"
   start_text:   "起"
   consent_text: "承"
   terning_text: "転"

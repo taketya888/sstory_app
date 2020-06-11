@@ -1,5 +1,24 @@
+<div class ="row">
+    <aside class="col-md-4">
+        <section class="user_info">
+            <h1><%= @user.name %></h1>
+                <%= @user.email %><br>
+                <%= @user.profile%>
+        </section>
 <% if current_user?(@user) %>
-<%= link_to "削除" , @user , method: :delete, 
-                               class: "btn btn-lg btn-primary",
-                               data: { confirm: "本当によろしいですか？"} %>
+    <%= link_to "削除" , @user , method: :delete, 
+                                 class: "btn btn-md btn-primary",
+                                 data: { confirm: "本当によろしいですか？"} %>
+    </aside>
+
 <% end %>
+<div class="col-md-8">
+    <% if @user.stories.any? %>
+        <h3>小噺集(<%= @user.stories.count %>)</h3>
+        <ol class="stories">
+            <%= render @stories %>
+        </ol>
+        <%= will_paginate @stories %>
+    <% end %>
+    <div>
+</div>

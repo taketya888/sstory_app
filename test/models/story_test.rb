@@ -4,7 +4,7 @@ class StoryTest < ActiveSupport::TestCase
   
   def setup
     @user = users(:michael)
-    @story = @user.stories.build(start_text: "起", consent_text: "承",
+    @story = @user.stories.build(title: "asadamao",start_text: "起", consent_text: "承",
                                  terning_text: "転", finish_text: "結")
   end
   
@@ -57,4 +57,13 @@ class StoryTest < ActiveSupport::TestCase
     assert_not @story.valid?
   end
   
+  test "title should be present" do
+    @story.title = nil
+    assert_not @story.valid?
+  end
+  
+  test "title should be at most 50 characters" do
+    @story.title = "a" * 51
+    assert_not @story.valid?
+  end
 end

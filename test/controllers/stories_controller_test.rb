@@ -20,4 +20,15 @@ class StoriesControllerTest < ActionDispatch::IntegrationTest
     end
     assert_redirected_to login_url
   end
+  
+  test "should redirect show when made story" do
+    get new_story_path
+    assert_template "stories/new"
+    post stories_path, params: { story: { title:"example",
+                                          start_text: "起",
+                                          consent_text: "承",
+                                          terning_text: "転",
+                                          finish_text: "結" } }
+    #assert_redirected_to story_path(@story)
+  end
 end

@@ -1,0 +1,6 @@
+<li id="story-<%= story.id %>">
+    <span class="story"><%= link_to story.title, story %></span>
+    <span class="timestamp">
+        <%= time_ago_in_words(story.created_at) %>
+    </span>
+</li>

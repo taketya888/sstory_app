@@ -1,0 +1,14 @@
+<div class ="row">
+    <aside class="col-md-5">
+        <h1><%= @story.title %></h1>
+            <%= @story.start_text%>
+            <%= @story.consent_text%>
+            <%= @story.terning_text%>
+            <%= @story.finish_text%><br>
+<% if @story.user_id == current_user.id %>
+<%= link_to "削除" , @story , method: :delete, 
+                               class: "btn btn-lg btn-primary",
+                               data: { confirm: "本当によろしいですか？"} %>
+<% end %>                               
+ </aside>
+</div>

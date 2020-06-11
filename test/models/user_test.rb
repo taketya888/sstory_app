@@ -42,10 +42,10 @@ class UserTest < ActiveSupport::TestCase
   
   test "associated stories should be destroyed" do
     @user.save
-    @user.stories.create!(start_text: "起", consent_text: "承",
+    @user.stories.create!(title:"知恵",start_text: "起", consent_text: "承",
                           terning_text: "転", finish_text: "結")
     assert_difference "Story.count", -1 do
-      @user.destroy
+    @user.destroy
     end
   end
 end
