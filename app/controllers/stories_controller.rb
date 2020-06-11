@@ -28,6 +28,25 @@ class StoriesController < ApplicationController
      @story = Story.find(params[:id])
     end
     
+    def index
+        @stories = Story.all.order(created_at: :desc)
+    end
+    
+    def edit
+        @story = Story.find(params[:id])
+    end
+    
+    def update
+    @story = Story.find(params[:id])
+     if @story.update_attributes(story_params)
+      flash[:success] = "変更を保存しました"
+      redirect_to @story
+     else
+      flash.now[:dager] = "変更の保存に失敗しました"
+      render "edit"
+     end
+    end
+    
     private
     
         def story_params

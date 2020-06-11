@@ -1,17 +1,4 @@
+<% provide(:button_text, "保存")%>
 <h1>小噺作成</h1>
-<%= form_for(@story) do |f|%>
-    <%= render "shared/error_messages", object: f.object %>
-        <%= f.label :タイトル %>
-        <%= f.text_field :title, class:"form-control"%>
-        <%= f.label :起 %>
-        <%= f.text_area :start_text, class:"form-control"%>
-        <%= f.label :承 %>
-        <%= f.text_area :consent_text, class:"form-control" %>
-        <%= f.label :転 %>
-        <%= f.text_area :terning_text, class:"form-control" %>
-        <%= f.label :結 %>
-        <%= f.text_area :finish_text, class:"form-control" %>
-        
-    <%= f.submit "投稿", class: "btn btn-primary" %>
-<% end %>
+<%= render "form" %>
 
