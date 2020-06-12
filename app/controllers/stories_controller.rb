@@ -14,7 +14,8 @@ class StoriesController < ApplicationController
     def destroy
        @story = Story.find_by(params[:id])
        @user = User.find_by(id: @story.user_id)
-       @story.destroy
+       #@story.destroy
+       @story.update(status: false)
        flash[:success] = "削除しました"
        redirect_to user_path(@user)
     end
@@ -25,7 +26,11 @@ class StoriesController < ApplicationController
     end
     
     def show
-     @story = Story.find(params[:id])
+        @story = Story.find(params[:id])
+        if @story.status == false
+            redirect_to stories_path
+            flash[:danger] = "表示するデータがありません"
+        end
     end
     
     def index

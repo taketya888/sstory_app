@@ -1,7 +1,7 @@
 <h1>投稿一覧</h1>
 <div class ="row">
     <aside class="col-md-4">
-<%  @stories.each do |story| %>
+<%  @stories.where(status: true).each do |story| %>
     <ol class="stories">
     <b><%= link_to story.user.name, user_path(story.user) %></b>
     <%= link_to story.title, story_path(story) %>

@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20200611015909) do
+ActiveRecord::Schema.define(version: 20200612012857) do
 
   create_table "stories", force: :cascade do |t|
     t.text "start_text"
@@ -18,13 +18,11 @@ ActiveRecord::Schema.define(version: 20200611015909) do
     t.text "terning_text"
     t.text "finish_text"
     t.integer "user_id"
-    t.boolean "status"
+    t.boolean "status", default: true
+    t.string "title"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
-    t.string "title"
-    t.datetime "deleted_at"
     t.index ["user_id", "created_at"], name: "index_stories_on_user_id_and_created_at"
-    t.index ["user_id"], name: "index_stories_on_user_id"
   end
 
   create_table "users", force: :cascade do |t|
@@ -40,6 +38,7 @@ ActiveRecord::Schema.define(version: 20200611015909) do
     t.datetime "activated_at"
     t.string "reset_digest"
     t.datetime "reset_sent_at"
+    t.string "image"
     t.index ["email"], name: "index_users_on_email", unique: true
   end
 

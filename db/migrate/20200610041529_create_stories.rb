@@ -6,8 +6,9 @@ class CreateStories < ActiveRecord::Migration[5.1]
       t.text :terning_text
       t.text :finish_text
       t.integer :user_id
-      t.boolean :status
-      t.references :user, foreign_key: true
+      t.boolean :status, default: true
+      t.string  :title
+      #t.references :user, foreign_key: true
 
       t.timestamps
     end

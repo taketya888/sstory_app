@@ -1,5 +1,5 @@
 class Story < ApplicationRecord
-  acts_as_paranoid
+  #acts_as_paranoid
   belongs_to :user
   default_scope -> { order(created_at: :desc) }
   validates :user_id, presence: true

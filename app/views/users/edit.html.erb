@@ -21,6 +21,8 @@
       <%= f.label :プロフィール %>
       <%= f.text_area :profile, class:"form-control"%>
       
+      <%= f.label :image, "ユーザー画像"%>
+      <%= f.file_field :image %>
       <%= f.submit yield(:button_text), class: "btn btn-primary" %>
     <% end %>
   </div>

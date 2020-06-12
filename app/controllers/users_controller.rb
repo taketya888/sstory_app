@@ -4,7 +4,7 @@ class UsersController < ApplicationController
   
   def show
     @user = User.find(params[:id])
-    @stories = @user.stories.paginate(page: params[:page])
+    @stories = @user.stories.paginate(page: params[:page]).where(status: true)
   end
   
   def new
@@ -52,7 +52,7 @@ class UsersController < ApplicationController
 
     def user_params
       params.require(:user).permit(:name, :email, :password,
-                                   :password_confirmation,:profile)
+                                   :password_confirmation,:profile,:image)
     end
     
     def correct_user
