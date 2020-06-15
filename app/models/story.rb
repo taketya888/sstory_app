@@ -10,16 +10,4 @@ class Story < ApplicationRecord
   validates :terning_text, presence: true, length: { maximum: 140 }
   validates :finish_text, presence: true, length: { maximum: 140 }
   
-  def like(user)
-    likes.create(user_id: user.id)
-  end
-  
-  def unlike(user)
-    likes.find_by(user_id: user.id).destroy
-  end
-  
-  def like?(user)
-    like_users.include?(user)
-  end
-  
 end

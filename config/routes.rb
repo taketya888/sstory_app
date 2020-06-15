@@ -1,11 +1,8 @@
 Rails.application.routes.draw do
-  get 'likes/create'
-
-  get 'likes/destroy'
-
-  get 'password_resets/new'
-
-  get 'password_resets/edit'
+  post 'likes/:story_id/create' => "likes#create"
+  delete "likes/:story_id/destroy" => "likes#destroy"
+  
+  get "stories/likes" => "stories#likes"
 
   get '/login' => "sessions#new"
   post "/login" => "sessions#create"
@@ -22,5 +19,4 @@ Rails.application.routes.draw do
   resources :account_activations, only: [:edit]
   resources :password_resets,     only: [:new, :create, :edit, :update]
   resources :stories
-  resources :likes,               only: [:create, :destroy]                  
 end

@@ -17,7 +17,7 @@
                                  data: { confirm: "本当によろしいですか？"} %>
    <% end %>
 </aside>
-<div class="col-md-8">
+ <div class="col-md-8">
     <% if @user.stories.any? %>
         <h3>小噺集(<%= @user.stories.count %>)</h3>
         <ol class="stories">
@@ -25,5 +25,5 @@
         </ol>
         <%= will_paginate @stories %>
     <% end %>
-    <div>
+ </div>
 </div>

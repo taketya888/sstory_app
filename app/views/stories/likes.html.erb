@@ -1,8 +1,9 @@
-<h1>投稿一覧</h1>
+<h1>いいねした投稿一覧</h1>
 <div class ="row">
     <aside class="col-md-12">
     <%= render "filter" %>
-<%  @stories.where(status: true).each do |story| %>
+<% @likes.each do |like|%>
+ <% story = Story.where(status: true).find_by(id: like.story_id)%>
     <ol class="stories">
     <b><%= link_to story.user.name, user_path(story.user) %></b>
     <%= link_to story.title, story_path(story) %>
@@ -10,3 +11,4 @@
 <% end %>
     </aside>
 </div>
+ 

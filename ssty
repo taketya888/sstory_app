@@ -1,0 +1,16 @@
+
+[1mFrom:[0m /home/ec2-user/environment/sstory_app/app/controllers/likes_controller.rb:21 LikesController#destroy:
+
+    [1;34m16[0m: [32mdef[0m [1;34mdestroy[0m
+    [1;34m17[0m:   @story = [1;34;4mLike[0m.find(params[[33m:id[0m]).story
+    [1;34m18[0m:   [32mif[0m @story.like?(current_user)
+    [1;34m19[0m:     @story.unlike(current_user)
+    [1;34m20[0m:     @story.reload
+ => [1;34m21[0m:     binding.pry
+    [1;34m22[0m:     respond_to [32mdo[0m |format|
+    [1;34m23[0m:       format.html { redirect_to request.referrer || story_path(@story) }
+    [1;34m24[0m:       format.js
+    [1;34m25[0m:     [32mend[0m
+    [1;34m26[0m:   [32mend[0m
+    [1;34m27[0m: [32mend[0m
+

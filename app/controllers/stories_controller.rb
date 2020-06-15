@@ -14,7 +14,6 @@ class StoriesController < ApplicationController
     def destroy
        @story = Story.find_by(params[:id])
        @user = User.find_by(id: @story.user_id)
-       #@story.destroy
        @story.update(status: false)
        flash[:success] = "削除しました"
        redirect_to user_path(@user)
@@ -34,7 +33,7 @@ class StoriesController < ApplicationController
     end
     
     def index
-        @stories = Story.all.order(created_at: :desc)
+        @stories = Story.order(created_at: :desc)
     end
     
     def edit
@@ -50,6 +49,11 @@ class StoriesController < ApplicationController
       flash.now[:dager] = "変更の保存に失敗しました"
       render "edit"
      end
+    end
+    
+    def likes
+        @user = User.find(current_user.id)
+        @likes = Like.where(user_id: @user.id)
     end
     
     private

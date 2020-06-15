@@ -1,18 +1,12 @@
- <% if !current_user?(story.user) %>
-     <span class ="like" >
-         <% if story.like?(current_user) %>
-             <%= form_for(story.likes.find_by(user_id: current_user.id), method: :delete, remote: true) do |f|%>
-                <%= button_tag(class: "btn btn btn-default btn-xs") do %>
-                    <%= content_tag :span, "#{story.likes_count}", class: "glyphicon glyphicon-heart" %>
-                    <% end %>
-                  <% end %>
-                <% else %>
-                    <%= form_for(story.likes.build, remote: true) do |f| %>
-                     <div><%= hidden_field_tag :story_id, story.id %></div>
-                     <%= button_tag(class: "btn btn-default btn-xs") do %>
-                         <%= content_tag :span, "#{story.likes_count}", class: "glyphicon glyphicon-heart-empty" %>
-                        <% end %>
-                     <% end %>
-                   <% end %>
-                  </span>
-                 <% end %>
+<% if current_user.id != @story.user_id %>
+<% if  Like.find_by(user_id: current_user.id,story_id: @story.id) %>
+    <%= link_to("/likes/#{@story.id}/destroy",{method: :delete}) do %>
+        <span class="fa fa-heart like-btn-unlike"></span>
+    <% end %>
+<% else %>
+    <%= link_to("/likes/#{@story.id}/create",{method: :post}) do %>
+        <span class="fa fa-heart like-btn"></span>
+    <%end%>
+<% end %>
+    <%= @story.likes_count %>
+<% end %>

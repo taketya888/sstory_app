@@ -1,26 +1,15 @@
 class LikesController < ApplicationController
   
   def create
-    @story = Story.find(params[:story_id])
-    unless @story.like?(current_user)
-      @story.like(current_user)
-      @story.reload
-      respond_to do |format|
-        format.html { redirect_to request.referrer || story_path(@story) }
-        format.js
-      end
-    end
+    @like = Like.new(user_id: current_user.id, story_id: params[:story_id])
+    @like.save
+    redirect_to story_path(params[:story_id])
   end
 
   def destroy
-    @story = Like.find(params[:id]).story
-    if @story.like?(current_user)
-      @story.unlike(current_user)
-      @story.reload
-      respond_to do |format|
-        format.html { redirect_to request.referrer || story_path(@story) }
-        format.js
-      end
-    end
+    @like = Like.find_by(user_id: current_user.id, story_id: params[:story_id])
+    @like.destroy
+    redirect_to story_path(params[:story_id])
   end
+    
 end
