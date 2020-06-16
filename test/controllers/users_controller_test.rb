@@ -58,6 +58,7 @@ class UsersControllerTest < ActionDispatch::IntegrationTest
     delete user_path(@user)
     assert_redirected_to root_url
     assert_not flash.empty?
-    #assert_select "a[href=?]", login_path
+    follow_redirect!
+    assert_select "a[href=?]", login_path
   end
 end
