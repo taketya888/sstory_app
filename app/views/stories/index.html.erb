@@ -6,6 +6,9 @@
     <ol class="stories">
     <b><%= link_to story.user.name, user_path(story.user) %></b>
     <%= link_to story.title, story_path(story) %>
+    <%if params[:option] == "3" && story.likes_count > 0 %>
+    <%= story.likes_count %>いいね
+    <% end %>
     </ol>
 <% end %>
     </aside>

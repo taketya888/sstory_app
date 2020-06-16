@@ -3,7 +3,7 @@ Rails.application.routes.draw do
   delete "likes/:story_id/destroy" => "likes#destroy"
   
   get "stories/likes" => "stories#likes"
-
+  
   get '/login' => "sessions#new"
   post "/login" => "sessions#create"
   delete "/logout" => "sessions#destroy"

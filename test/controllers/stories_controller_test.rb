@@ -34,4 +34,12 @@ class StoriesControllerTest < ActionDispatch::IntegrationTest
                                           finish_text: "結" } }
     end
   end
+  
+  test "should redirect users show when destroy story" do
+    log_in_as(@user)
+    get story_path(@story)
+    assert_template "stories/show"
+    delete story_path(@story)
+    assert_redirected_to user_path(@user)
+  end
 end

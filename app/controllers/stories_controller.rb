@@ -12,7 +12,7 @@ class StoriesController < ApplicationController
     end
     
     def destroy
-       @story = Story.find_by(params[:id])
+       @story = Story.find(params[:id])
        @user = User.find_by(id: @story.user_id)
        @story.update(status: false)
        flash[:success] = "削除しました"
@@ -33,8 +33,15 @@ class StoriesController < ApplicationController
     end
     
     def index
-        @stories = Story.order(created_at: :desc)
+        if params[:option] == "1" || params[:option] == nil
+            @stories = Story.all.order(created_at: :desc)
+        elsif params[:option] == "2"
+            @stories = Story.all.order(:created_at)
+        elsif params[:option] == "3"
+            @stories = Story.all.order(likes_count: :desc)        
+        end
     end
+    
     
     def edit
         @story = Story.find(params[:id])
