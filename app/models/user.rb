@@ -2,6 +2,7 @@ class User < ApplicationRecord
     mount_uploader :image, ImageUploader
     has_many :likes, dependent: :destroy
     has_many :stories, dependent: :destroy
+    has_many :like_stories, through: :likes, source: :story
     attr_accessor :remember_token, :activation_token, :reset_token
     before_save   :downcase_email
     before_create :create_activation_digest

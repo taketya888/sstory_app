@@ -1,15 +1,23 @@
 class LikesController < ApplicationController
+  before_action :set_variables
   
-  def create
-    @like = Like.new(user_id: current_user.id, story_id: params[:story_id])
+  
+  def like
+    @like = current_user.likes.new(story_id: @story.id)
     @like.save
-    redirect_to story_path(params[:story_id])
+    respond_to do |format|
+      format.html 
+      format.js   { redirect_to story_path(params[:story_id]) }
+      end
   end
 
-  def destroy
-    @like = Like.find_by(user_id: current_user.id, story_id: params[:story_id])
+  def unlike
+    @like = current_user.likes.find_by(story_id: @story.id)
     @like.destroy
-    redirect_to story_path(params[:story_id])
+    respond_to do |format|
+      format.html 
+      format.js   { redirect_to story_path(params[:story_id]) }
+      end
   end
     
   private

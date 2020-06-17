@@ -20,10 +20,6 @@ class UsersLikeTest < ActionDispatch::IntegrationTest
     get story_path(@story)
     assert_template "stories/show"
     assert_select "span.like-btn", count:1
-    assert_difference "Like.count", 1 do
-    post "/likes/#{@story.id}/create", params:{ user_id: @another.id,
-                                               story_id: @story.id } 
-    end
     #assert_select "span.like-btn-unlike",count:1
   end
 end

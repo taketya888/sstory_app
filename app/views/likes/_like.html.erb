@@ -1,12 +1,14 @@
-<% if current_user.id != @story.user_id %>
-<% if  Like.find_by(user_id: current_user.id,story_id: @story.id) %>
-    <%= link_to("/likes/#{@story.id}/destroy",{method: :delete},remote: true) do %>
+<div class="like-link" id="like-link-<%= story.id %>">
+<% if current_user.id != story.user_id %>
+<% if  current_user.likes.find_by(story_id: story.id) %>
+    <%= link_to unlike_path(story.id), method: :delete, remote: true, data: {"turbolinks"=>false} do %>
         <span class="fa fa-heart like-btn-unlike"></span>
     <% end %>
 <% else %>
-    <%= link_to("/likes/#{@story.id}/create",{method: :post},remote: true) do %>
+    <%= link_to like_path(story.id), method: :post, remote: true, data: {"turbolinks"=>false} do %>
         <span class="fa fa-heart like-btn"></span>
     <%end%>
 <% end %>
-    <%= @story.likes_count %>
+    <%= story.likes_count %>
 <% end %>
+</div>

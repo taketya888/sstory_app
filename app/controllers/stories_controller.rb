@@ -34,11 +34,11 @@ class StoriesController < ApplicationController
     
     def index
         if params[:option] == "1" || params[:option] == nil
-            @stories = Story.all.order(created_at: :desc)
+            @stories = Story.paginate(page: params[:page]).order(created_at: :desc)
         elsif params[:option] == "2"
-            @stories = Story.all.order(:created_at)
+            @stories = Story.paginate(page: params[:page]).order(:created_at)
         elsif params[:option] == "3"
-            @stories = Story.all.order(likes_count: :desc)        
+            @stories = Story.paginate(page: params[:page]).order(likes_count: :desc)        
         end
     end
     
