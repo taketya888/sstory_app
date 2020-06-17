@@ -1,10 +1,10 @@
 <% if current_user.id != @story.user_id %>
 <% if  Like.find_by(user_id: current_user.id,story_id: @story.id) %>
-    <%= link_to("/likes/#{@story.id}/destroy",{method: :delete}) do %>
+    <%= link_to("/likes/#{@story.id}/destroy",{method: :delete},remote: true) do %>
         <span class="fa fa-heart like-btn-unlike"></span>
     <% end %>
 <% else %>
-    <%= link_to("/likes/#{@story.id}/create",{method: :post}) do %>
+    <%= link_to("/likes/#{@story.id}/create",{method: :post},remote: true) do %>
         <span class="fa fa-heart like-btn"></span>
     <%end%>
 <% end %>

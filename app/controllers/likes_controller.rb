@@ -12,4 +12,11 @@ class LikesController < ApplicationController
     redirect_to story_path(params[:story_id])
   end
     
+  private
+  
+  def set_variables
+    @story = Story.find(params[:story_id])
+    @id_name = "#like-link-#{@story.id}"
+  end
+  
 end
