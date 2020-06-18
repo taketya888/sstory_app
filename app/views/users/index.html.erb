@@ -1,0 +1,15 @@
+<div class="row">
+    <div class="col-md-4">
+     <%= render "shared/search" %>
+<% if @count >= 1 %>
+ヒット数（<%= @count %>）
+<% @users.each do |user| %>
+　<ol class="stories">
+    <%= link_to user.name, user_path(user) %>
+  </ol>
+<% end %>
+<% else %>
+    検索結果：なし
+<% end %>
+    </div>
+</div>

@@ -16,6 +16,7 @@ gem 'mail-iso-2022-jp'
 gem 'carrierwave'
 gem 'mini_magick'
 gem 'counter_culture', '~> 1.8'
+gem "ransack"
 
 group :development, :test do
   gem 'sqlite3', '1.3.13'

@@ -46,7 +46,9 @@ class UsersController < ApplicationController
   end
   
   def index
-    @users = User.all
+    @q = User.ransack(params[:q])
+    @users = @q.result(distinct: true)
+    @count = @q.result(distinct: true).count
   end
   
   private

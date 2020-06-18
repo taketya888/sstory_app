@@ -33,12 +33,14 @@ class StoriesController < ApplicationController
     end
     
     def index
+      @q = Story.ransack(params[:q])
+      @count = @q.result(distinct: true).count
         if params[:option] == "1" || params[:option] == nil
-            @stories = Story.paginate(page: params[:page]).order(created_at: :desc)
+            @stories = @q.result(distinct: true).paginate(page: params[:page]).order(created_at: :desc)
         elsif params[:option] == "2"
-            @stories = Story.paginate(page: params[:page]).order(:created_at)
+            @stories = @q.result(distinct: true).paginate(page: params[:page]).order(:created_at)
         elsif params[:option] == "3"
-            @stories = Story.paginate(page: params[:page]).order(likes_count: :desc)        
+            @stories = @q.result(distinct: true).paginate(page: params[:page]).order(likes_count: :desc)        
         end
     end
     

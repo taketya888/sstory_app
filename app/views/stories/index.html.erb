@@ -1,8 +1,14 @@
 <h1>投稿一覧</h1>
 <div class ="row">
     <aside class="col-md-12">
+    <%= search_form_for @q do |f| %>
+      <%= f.label :name, "キーワード" %>
+      <%= f.search_field :title_cont %>
+      <%= f.submit "検索" %>
+    <% end %>
     <%= render "filter" %>
-<%= will_paginate @stories %>
+<% if @count >= 1 %>
+ヒット数（<%= @count %>)
 <%  @stories.where(status: true).each do |story| %>
     <ol class="stories">
     <b><%= link_to story.user.name, user_path(story.user) %></b>
@@ -13,5 +19,8 @@
     </ol>
 <% end %>
 <%= will_paginate @stories %>
+<% else %>
+検索結果：無し
+<% end %>
     </aside>
 </div>
