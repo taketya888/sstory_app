@@ -28,6 +28,5 @@ users = User.order(:created_at).take(3)
                                              start_text: start_text,
                                              consent_text: consent_text,
                                              terning_text: terning_text,
-                                             finish_text: finish_text,
-                                             likes_count: 10 ) }
+                                             finish_text: finish_text, ) }
 end

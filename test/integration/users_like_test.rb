@@ -7,13 +7,7 @@ class UsersLikeTest < ActionDispatch::IntegrationTest
     @story = stories(:orange)
   end
   
-  test "should create like when login same_user" do
-    log_in_as(@user)
-    get story_path(@story)
-    assert_template "stories/show"
-    assert_select "span.like-btn",count:0
-    assert_select "span.like-btn-unlike",count:0
-  end
+  
   
   test "should create like and increse likes_count when post like create" do
     log_in_as(@another)

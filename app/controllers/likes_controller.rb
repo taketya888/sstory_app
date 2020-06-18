@@ -6,8 +6,8 @@ class LikesController < ApplicationController
     @like = current_user.likes.new(story_id: @story.id)
     @like.save
     respond_to do |format|
-      format.html 
-      format.js   { redirect_to story_path(params[:story_id]) }
+      format.html
+      format.js
       end
   end
 
@@ -16,7 +16,7 @@ class LikesController < ApplicationController
     @like.destroy
     respond_to do |format|
       format.html 
-      format.js   { redirect_to story_path(params[:story_id]) }
+      format.js 
       end
   end
     
