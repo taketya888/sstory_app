@@ -2,6 +2,13 @@
     <%= render "shared/error_messages", object: f.object %>
         <%= f.label :タイトル %>
         <%= f.text_field :title, class:"form-control"%>
+        
+        <div class="story-tags-field">
+            <%= f.label "カテゴリー" %>
+            <ul id="story-tags">
+            </ul>
+        </div>
+        
         <%= f.label :起 %>
         <%= f.text_area :start_text, class:"form-control"%>
         <%= f.label :承 %>

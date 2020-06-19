@@ -1,6 +1,6 @@
 <div class="row">
     <div class="col-md-4">
-     <%= render "shared/search" %>
+     <%= render "shared/search" , cont: :name_cont %>
 <% if @count >= 1 %>
 ヒット数（<%= @count %>）
 <% @users.each do |user| %>

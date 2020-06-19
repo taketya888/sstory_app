@@ -4,7 +4,7 @@ class UsersController < ApplicationController
   
   def show
     @user = User.find(params[:id])
-    @stories = @user.stories.paginate(page: params[:page]).where(status: true)
+    @stories = @user.stories.paginate(page: params[:page]).where(status: true).order(created_at: :desc)
     @likes = Like.where(user_id: @user.id)
   end
   

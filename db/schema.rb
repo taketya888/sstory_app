@@ -10,7 +10,14 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20200612061545) do
+ActiveRecord::Schema.define(version: 20200619054031) do
+
+  create_table "categories", force: :cascade do |t|
+    t.string "name"
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+    t.index ["name"], name: "index_categories_on_name", unique: true
+  end
 
   create_table "likes", force: :cascade do |t|
     t.integer "user_id"
@@ -34,6 +41,16 @@ ActiveRecord::Schema.define(version: 20200612061545) do
     t.datetime "updated_at", null: false
     t.integer "likes_count", default: 0, null: false
     t.index ["user_id", "created_at"], name: "index_stories_on_user_id_and_created_at"
+  end
+
+  create_table "story_categories", force: :cascade do |t|
+    t.integer "story_id"
+    t.integer "category_id"
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+    t.index ["category_id"], name: "index_story_categories_on_category_id"
+    t.index ["story_id", "category_id"], name: "index_story_categories_on_story_id_and_category_id", unique: true
+    t.index ["story_id"], name: "index_story_categories_on_story_id"
   end
 
   create_table "users", force: :cascade do |t|

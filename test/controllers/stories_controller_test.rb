@@ -42,4 +42,11 @@ class StoriesControllerTest < ActionDispatch::IntegrationTest
     delete story_path(@story)
     assert_redirected_to user_path(@user)
   end
+  
+  test "should show title + 4 page + fin when user get stories/show" do
+    log_in_as(@user)
+    get story_path(@story)
+    assert_template "stories/show"
+    assert_select "span.fa-heart", count:0
+  end
 end

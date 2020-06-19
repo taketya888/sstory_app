@@ -1,4 +1,7 @@
 Rails.application.routes.draw do
+  get 'category/index'
+
+  get "stories/turn" => "stories#turn"
   post   'likes/:story_id' => "likes#like",   as: "like"
   delete "likes/:story_id" => "likes#unlike", as: "unlike" 
   

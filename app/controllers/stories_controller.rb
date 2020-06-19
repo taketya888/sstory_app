@@ -3,7 +3,9 @@ class StoriesController < ApplicationController
     
     def create
         @story = current_user.stories.build(story_params)
+        category_list = params[:category_list].split(",")
         if @story.save
+           @story.save_categories(category_list)
             flash[:success] = "保存しました"
             redirect_to story_path(@story)
         else
@@ -26,6 +28,7 @@ class StoriesController < ApplicationController
     
     def show
         @story = Story.find(params[:id])
+        @tags = @story.categories.map(&:name) 
         if @story.status == false
             redirect_to stories_path
             flash[:danger] = "表示するデータがありません"
@@ -47,11 +50,14 @@ class StoriesController < ApplicationController
     
     def edit
         @story = Story.find(params[:id])
+        @category_list = @story.categories.pluck(:name).join(",")
     end
     
     def update
     @story = Story.find(params[:id])
+    category_list = params[:category_list].split(",")
      if @story.update_attributes(story_params)
+       @story.save_categories(category_list)
       flash[:success] = "変更を保存しました"
       redirect_to @story
      else
@@ -63,6 +69,9 @@ class StoriesController < ApplicationController
     def likes
         @user = User.find(current_user.id)
         @likes = Like.where(user_id: @user.id)
+    end
+    
+    def turn
     end
     
     private

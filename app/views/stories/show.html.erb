@@ -8,6 +8,9 @@
     <div class="like-link" id="like-link-<%= @story.id %>">
       <%= render "likes/like" , remote: true %>
     </div>
+    <% @tags.each do |tag| %>
+      <p><%= tag %></p>
+    <% end %>
 <% if @story.user_id == current_user.id %>
 <%= link_to "編集" , edit_story_path(@story),class: "btn btn-md btn-primary" %>
 <%= link_to "削除" , @story , method: :delete, 
