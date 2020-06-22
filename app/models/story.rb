@@ -10,7 +10,7 @@ class Story < ApplicationRecord
   validates :consent_text, presence: true, length: { maximum: 140 }
   validates :terning_text, presence: true, length: { maximum: 140 }
   validates :finish_text, presence: true, length: { maximum: 140 }
-  
+  scope :from_category, -> (category_id) { where(id: story_ids = StoryCategory.where(category_id: category_id).select(:story_id))}
   def save_categories(tags)
     current_tags = self.categories.pluck(:name) unless self.categories.nil?
     old_tags = current_tags - tags

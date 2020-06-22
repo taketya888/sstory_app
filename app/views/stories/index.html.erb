@@ -1,8 +1,10 @@
 <h1>投稿一覧</h1>
 <div class ="row">
     <aside class="col-md-12">
+    <% unless @selected_category %>
     <%= render "shared/search" ,cont: :title_cont%>
     <%= render "filter" %>
+    <% end %>
 <% if @count >= 1 %>
 ヒット数（<%= @count %>)
 <%  @stories.where(status: true).each do |story| %>
@@ -14,9 +16,9 @@
            <% end %>
     </ol>
 <% end %>
-<%= will_paginate @stories %>
+    <%= will_paginate @stories %>
 <% else %>
-検索結果：無し
+    検索結果：無し
 <% end %>
     </aside>
 </div>
