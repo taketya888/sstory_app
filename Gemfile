@@ -24,6 +24,8 @@ group :development, :test do
   gem 'byebug',  '9.0.6', platform: [:mri, :mingw, :x64_mingw]
   gem "faker",   "1.7.3"
   gem 'pry-rails'
+  gem 'hirb'
+  gem 'hirb-unicode'
 end
 
 group :development do

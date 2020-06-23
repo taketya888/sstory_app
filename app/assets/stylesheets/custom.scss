@@ -49,6 +49,10 @@ h2 {
   color: $gray-light;
 }
 
+h4 {
+  margin-bottom: 0px;
+}
+
 p {
   font-size: 1.1em;
   line-height: 1.7em;
@@ -221,14 +225,16 @@ li {
 .tag {
   float: left;
   margin-right: 10px;
+  margin-top: 10px;
 }
 
 .edit {
   clear:  both;
-  margin-top: 35px;
+  margin-top: 45px;
 }
 
 .box {
+  　display :inline-block;
     padding: 0.2em 1em 2em 1em;
     margin: 0em 0;
     font-weight: bold;

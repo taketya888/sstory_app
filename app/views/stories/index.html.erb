@@ -5,6 +5,9 @@
     <%= render "shared/search" ,cont: :title_cont%>
     <%= render "filter" %>
     <% end %>
+<% if @selected_category%>
+<b>タグ名</b>:<%= @selected_category.name %><br>
+<% end %>
 <% if @count >= 1 %>
 ヒット数（<%= @count %>)
 <%  @stories.where(status: true).each do |story| %>

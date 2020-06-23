@@ -4,9 +4,10 @@
         <%= f.text_field :title, class:"form-control"%>
         
         <div class="story-tags-field">
-            <%= f.label "カテゴリー" %>
+            <%= f.label "カテゴリー"%>
             <ul id="story-tags">
             </ul>
+            <%= hidden_field_tag :category_hidden,@category_list %>
         </div>
         
         <%= f.label :起 %>

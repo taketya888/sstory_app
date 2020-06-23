@@ -1,5 +1,5 @@
 Rails.application.routes.draw do
-  get 'category/index'
+  get 'category/index' => "category#index", as: "categories"
 
   get "stories/turn" => "stories#turn"
   post   'likes/:story_id' => "likes#like",   as: "like"

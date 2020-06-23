@@ -28,6 +28,7 @@ class StoriesControllerTest < ActionDispatch::IntegrationTest
     assert_template "stories/new"
     assert_difference 'Story.count'  do
     post stories_path, params: { story: { title: "example",
+                                          category_list: "遊び",
                                           start_text: "起",
                                           consent_text: "承",
                                           terning_text: "転",

@@ -3,7 +3,9 @@ class StoriesController < ApplicationController
     
     def create
         @story = current_user.stories.build(story_params)
+        if params[:category_list]
         category_list = params[:category_list].split(",")
+        end
         if @story.save
            @story.save_categories(category_list)
             flash[:success] = "保存しました"
@@ -17,6 +19,7 @@ class StoriesController < ApplicationController
        @story = Story.find(params[:id])
        @user = User.find_by(id: @story.user_id)
        @story.update(status: false)
+       #@story.categories.destroy
        flash[:success] = "削除しました"
        redirect_to user_path(@user)
     end
@@ -38,7 +41,7 @@ class StoriesController < ApplicationController
     def index
       if params[:category_id]
         @selected_category = Category.find(params[:category_id])
-        @count =  Story.from_category(params[:category_id]).count
+        @count =  Story.where(status: true).from_category(params[:category_id]).count
         if params[:option] == "1" || params[:option] == nil
             @stories = Story.from_category(params[:category_id]).paginate(page: params[:page]).order(created_at: :desc)
         elsif params[:option] == "2"
