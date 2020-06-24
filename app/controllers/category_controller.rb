@@ -1,7 +1,7 @@
 class CategoryController < ApplicationController
     
     def index
-      @stories = Story.where(status: true)
+      #@categories = Story.where(status: true).story_categories.categories
       @categories = Category.all.order(created_at: :desc)
     end
 end

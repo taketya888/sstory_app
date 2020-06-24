@@ -1,3 +1,4 @@
+<% provide(:title, "小噺詳細") %>
 <div class ="row">
     <aside class="col-md-5">
         <h1><%= @story.title %></h1>
@@ -10,15 +11,13 @@
     </div>
 <% unless @story.categories.blank? %>
 <h4 style="color: blue">タグ</h4>
-<div class = "border border-primary">
   <ul class="tags">
     <% @story.categories.each do |category| %>
       <li>
         <%= link_to category.name,stories_path(category_id: category.id),{class: "btn btn-sm btn-primary active tag"} %>
       </li>
-<% end %>
+        <% end %>
   </ul>
-</div>
 <% end %>
 <% if @story.user_id == current_user.id %>
 <div class="edit">
