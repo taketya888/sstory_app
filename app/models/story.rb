@@ -13,6 +13,8 @@ class Story < ApplicationRecord
   scope :from_category, -> (category_id) { where(id: story_ids = StoryCategory.where(category_id: category_id).select(:story_id))}
   def save_categories(tags)
     current_tags = self.categories.pluck(:name) unless self.categories.nil?
+    return if current_tags.blank?
+    return if tags.blank?
     old_tags = current_tags - tags
     new_tags = tags - current_tags
     

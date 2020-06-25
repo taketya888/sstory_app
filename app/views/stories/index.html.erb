@@ -1,28 +1,28 @@
 <% provide(:title, "小噺一覧") %>
 <h1>小噺一覧</h1>
 <div class ="row">
-    <aside class="col-md-12">
+  <aside class="col-md-12">
     <% unless @selected_category %>
-    <%= render "shared/search" ,cont: :title_cont%>
-    <%= render "filter" %>
+      <%= render "shared/search" ,cont: :title_cont%>
+      <%= render "filter" %>
     <% end %>
-<% if @selected_category%>
-<b>タグ名</b>:<%= @selected_category.name %><br>
-<% end %>
-<% if @count >= 1 %>
-ヒット数（<%= @count %>)
-<%  @stories.where(status: true).each do |story| %>
-    <ol class="stories">
-    <b><%= link_to story.user.name, user_path(story.user) %></b>
-       <%= link_to story.title, story_path(story) %>
-           <%if params[:option] == "3" && story.likes_count > 0 %>
-               <%= story.likes_count %>いいね
-           <% end %>
-    </ol>
-<% end %>
-    <%= will_paginate @stories %>
-<% else %>
-    検索結果：無し
-<% end %>
-    </aside>
+      <% if @selected_category%>
+        <b>タグ名</b>:<%= @selected_category.name %><br>
+      <% end %>
+        <% if @count >= 1 %>
+          ヒット数（<%= @count %>)
+            <%  @stories.where(status: true).each do |story| %>
+              <ol class="stories">
+                <b><%= link_to story.user.name, user_path(story.user) %></b>
+                <%= link_to story.title, story_path(story) %>
+                  <%if params[:option] == "3" && story.likes_count > 0 %>
+                    <%= story.likes_count %>いいね
+                  <% end %>
+              </ol>
+            <% end %>
+              <%= will_paginate @stories %>
+        <% else %>
+          検索結果：無し
+        <% end %>
+  </aside>
 </div>

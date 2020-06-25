@@ -1,31 +1,31 @@
 <% provide(:title, "小噺詳細") %>
 <div class ="row">
-    <aside class="col-md-5">
-        <h1><%= @story.title %></h1>
-            <%= @story.start_text%><br>
-            <%= @story.consent_text%><br>
-            <%= @story.terning_text%><br>
-            <%= @story.finish_text%><br>
+  <aside class="col-md-5">
+    <h1><%= @story.title %></h1>
+        <%= @story.start_text%><br>
+        <%= @story.consent_text%><br>
+        <%= @story.terning_text%><br>
+        <%= @story.finish_text%><br>
     <div class="like-link" id="like-link-<%= @story.id %>">
       <%= render "likes/like" , remote: true %>
     </div>
-<% unless @story.categories.blank? %>
-<h4 style="color: blue">タグ</h4>
-  <ul class="tags">
-    <% @story.categories.each do |category| %>
-      <li>
-        <%= link_to category.name,stories_path(category_id: category.id),{class: "btn btn-sm btn-primary active tag"} %>
-      </li>
+    <% unless @story.categories.blank? %>
+      <h4 style="color: blue">タグ</h4>
+      <ul class="tags">
+        <% @story.categories.each do |category| %>
+          <li>
+            <%= link_to category.name,stories_path(category_id: category.id),{class: "btn btn-sm btn-primary active tag"} %>
+          </li>
         <% end %>
-  </ul>
-<% end %>
-<% if @story.user_id == current_user.id %>
-<div class="edit">
-<%= link_to "編集" , edit_story_path(@story),class: "btn btn-md btn-primary" %>
-<%= link_to "削除" , @story , method: :delete, 
-                               class: "btn btn-md btn-danger",
-                               data: { confirm: "本当によろしいですか？"} %>
-</div>
-<% end %>
-    </aside>
+      </ul>
+    <% end %>
+      <% if @story.user_id == current_user.id %>
+        <div class="edit">
+          <%= link_to "編集" , edit_story_path(@story),class: "btn btn-md btn-primary" %>
+          <%= link_to "削除" , @story , method: :delete, 
+                                         class: "btn btn-md btn-danger",
+                                          data: { confirm: "本当によろしいですか？"} %>
+        </div>
+      <% end %>
+  </aside>
 </div>

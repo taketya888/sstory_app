@@ -5,8 +5,8 @@
         <% end %>
     <% else %>
         <%= link_to like_path(@story.id), method: :post, remote: true do %>
-            <span class="fa fa-heart like-btn"></span>
+           <span class="fa fa-heart like-btn"></span>
         <%end%>
     <% end %>
-    <%= @story.likes.count %>
+      <%= @story.likes.count %>
 <% end %>

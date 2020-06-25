@@ -4,7 +4,4 @@ class StaticPagesController < ApplicationController
      redirect_to user_path(current_user)
     end
   end
-
-  def help
-  end
 end

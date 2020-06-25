@@ -8,7 +8,7 @@ class LikesController < ApplicationController
     respond_to do |format|
       format.html
       format.js
-      end
+    end
   end
 
   def unlike
@@ -17,7 +17,7 @@ class LikesController < ApplicationController
     respond_to do |format|
       format.html 
       format.js 
-      end
+    end
   end
     
   private
