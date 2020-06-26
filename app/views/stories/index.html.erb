@@ -1,7 +1,7 @@
 <% provide(:title, "小噺一覧") %>
 <h1>小噺一覧</h1>
 <div class ="row">
-  <aside class="col-md-12">
+  <div class="col-md-12">
     <% unless @selected_category %>
       <%= render "shared/search" ,cont: :title_cont%>
       <%= render "filter" %>
@@ -11,18 +11,35 @@
       <% end %>
         <% if @count >= 1 %>
           ヒット数（<%= @count %>)
-            <%  @stories.where(status: true).each do |story| %>
-              <ol class="stories">
-                <b><%= link_to story.user.name, user_path(story.user) %></b>
-                <%= link_to story.title, story_path(story) %>
+          <table class="table table-bordered border-primary table-hover table-sm stories_table">
+            <thead class="thead-dark">
+              <tr>
+                <th scope="col">投稿タイトル</th>
+                <th scope="col">投稿者</th>
+                <th scope="col">投稿日</th>
+                <th scope="col">更新日時</th>
+                <%if params[:option] == "3"%>
+                 <th scope="col">いいね</th>
+                <% end %>
+              </tr>
+            </thead>
+            <tbody>
+              <tr class="stories">
+                <%  @stories.where(status: true).each do |story| %>
+                <td><%= link_to story.title, story_path(story) %></td>
+                <td><%= link_to story.user.name, user_path(story.user) %></td>
+                <td><%=  story.created_at.strftime('%Y/%m/%d %H:%M') %></td>
+                <td><%=  story.updated_at.strftime('%Y/%m/%d %H:%M') %></td>
                   <%if params[:option] == "3" && story.likes_count > 0 %>
-                    <%= story.likes_count %>いいね
+                    <td><span class="fa fa-thumbs-o-up fa-lg like-btn-unlike"></span><%= story.likes_count %> </td>
                   <% end %>
-              </ol>
-            <% end %>
-              <%= will_paginate @stories %>
+              </tr>
+                <% end %>
+            </tbody>
+          </table>
+          <%= will_paginate @stories %>
         <% else %>
           検索結果：無し
         <% end %>
-  </aside>
+  </div>
 </div>
