@@ -9,12 +9,21 @@ $gray-medium-light: #eaeaea;
   box-sizing:         border-box;
 }
 
+@font-face {
+  font-family: 'Ashihara';
+  src: font-url('AiharaHudemojiKaisho3.00.ttf') format('truetype');
+}
+
 body {
   padding-top: 60px;
 }
 
 section {
   overflow: auto;
+  h2 {
+    font-size: 2.2em;
+    font-family: 'Ashihara';
+  }
 }
 
 textarea {
@@ -25,7 +34,7 @@ textarea {
   text-align: center;
   h1 {
     margin-bottom: 10px;
-    text-align: left;
+    font-family: 'Ashihara';
   }
 }
 
@@ -63,11 +72,15 @@ p {
   float: left;
   margin-right: 10px;
   font-size: 1.7em;
-  color: default;
+  color: green;
   text-transform: uppercase;
   letter-spacing: -1px;
   padding-top: 9px;
   font-weight: bold;
+  transform: translateX(-50%);
+  left: 50%;
+  position: absolute;
+  font-family: 'Ashihara';
   &:hover {
     color: default;
     text-decoration: none;
@@ -205,6 +218,10 @@ span.picture {
   font-size: 2rem;
 }
 
+.like-link {
+  float: right;
+}
+
 .like-btn {
   color: #8899a6;
 }
@@ -254,8 +271,12 @@ li {
    height: 400px;
 }
 
-  .img-thumbnail {
-    //border-color: green;
-    border-width: 5px;
-    padding: 0px;
-  }
+.img-thumbnail {
+  //border-color: green;
+  border-width: 5px;
+  padding: 0px;
+}
+
+.full_story {
+  text-align: center;
+}

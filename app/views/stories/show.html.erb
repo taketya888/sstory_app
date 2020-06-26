@@ -1,11 +1,13 @@
 <% provide(:title, "小噺詳細") %>
 <div class ="row">
-  <aside class="col-md-5">
+  <aside class="col-md-12">
     <h1><%= @story.title %></h1>
-        <%= @story.start_text%><br>
-        <%= @story.consent_text%><br>
-        <%= @story.terning_text%><br>
-        <%= @story.finish_text%><br>
+    <ul class="full_story">
+      <li><%= @story.start_text%></li>
+      <li><%= @story.consent_text%></li>
+      <li><%= @story.terning_text%></li>
+      <li><%= @story.finish_text%></li>
+    </ul>
     <div class="like-link" id="like-link-<%= @story.id %>">
       <%= render "likes/like" , remote: true %>
     </div>

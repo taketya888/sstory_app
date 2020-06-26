@@ -1,15 +1,19 @@
 <% provide(:title, "ホーム") %>
 <div class="center">
-<h1>ホーム画面（仮）</h1>
+<h1>起承転結</h1>
   <div class="swiper-container">
     <div class="swiper-wrapper">
-      <div class="swiper-slide"><%= image_tag "1", :size => '400x400' %></div>
+      <div class="swiper-slide"><%= image_tag "logos", :size => '400x400' %></div>
       <div class="swiper-slide"><%= image_tag "2", :size => '400x400' %></div>
       <div class="swiper-slide"><%= image_tag "3", :size => '400x400' %></div>
    </div>
    <div class="swiper-button-prev"></div>
    <div class="swiper-button-next"></div>
-</div>
+  </div>
+  <section>
+  <h2>サイト案内</h2>
+  <p>起承転結からなる物語を簡単に作成できます。</p>
+  </section>
   <%= link_to "新規登録", signup_path, class: "btn btn-lg btn-primary" %>
 </div>
 
