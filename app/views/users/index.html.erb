@@ -7,6 +7,11 @@
       ヒット数（<%= @count %>）
         <% @users.each do |user| %>
 　        <ol class="stories">
+　          <% if user.image? %>
+              <%= image_tag user.image.url, size: 50, style:"border-radius: 50%" %>
+            <% else %>
+              <%= image_tag "noimage.jpg", size: 50, style:"border-radius: 50%" %>
+            <% end %>
             <%= link_to user.name, user_path(user) %>
           </ol>
         <% end %>
