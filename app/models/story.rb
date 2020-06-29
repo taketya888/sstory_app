@@ -27,4 +27,8 @@ class Story < ApplicationRecord
       self.categories << story_category
     end
   end
+  
+  #def current_user_story?(story)
+    #story.user_id == current_user.id
+  #end
 end
