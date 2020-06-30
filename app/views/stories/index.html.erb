@@ -6,6 +6,13 @@
       <%= render "shared/search" ,cont: :title_cont%>
       <%= render "filter" %>
     <% end %>
+    <%= form_tag stories_path, method: :get, class: 'stories__searchForm' do %>
+      <%= select_tag :category_id,
+          options_from_collection_for_select(Category.where(status: true), :id, :name, params[:id]),
+            {  prompt: 'タグで絞り込み',
+                class: 'form-control stories__select',
+             onchange: 'submit(this.form);'}%> 
+    <% end %>
     <% if @selected_category%>
       <b>タグ名</b>:<%= @selected_category.name %><br>
     <% end %>

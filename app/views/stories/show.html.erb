@@ -13,11 +13,11 @@
 		</div>
 		<% unless @story.categories.blank? %>
 			<h4 style="color: blue">タグ</h4>
-			<ul class="tags">
+			<pre class="tags">
 				<% @story.categories.each do |category| %>
-					<li><%= link_to category.name,stories_path(category_id: category.id),{class: "btn btn-sm btn-primary active tag"} %></li>
+					<%= link_to category.name,stories_path(category_id: category.id),{class: "btn btn-sm btn-primary active "} %>
 				<% end %>
-			</ul>
+			</pre>
 		<% end %>
 		<% if @story.user_id == current_user.id %>
 			<div class="edit">

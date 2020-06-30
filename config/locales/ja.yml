@@ -1,0 +1,10 @@
+ja:
+  activerecord:
+    models:
+      title: タイトル
+    attributes:
+      event:
+        start_text: 起の文
+        consent_text: 承の文
+        terning_text: 転の文
+        finish_text: 結の文

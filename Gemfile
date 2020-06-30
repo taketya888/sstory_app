@@ -18,6 +18,7 @@ gem 'mini_magick'
 gem 'counter_culture', '~> 1.8'
 gem "ransack"
 gem 'jquery-ui-rails'
+gem 'rails-i18n'
 
 group :development, :test do
   gem 'sqlite3', '1.3.13'

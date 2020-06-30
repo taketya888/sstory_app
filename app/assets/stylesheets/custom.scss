@@ -235,19 +235,17 @@ li {
 }
 
 .tags {
-  padding-left: 0px;
-  padding-top: 5px;
+  display: flex;
+.btn {
+  display: flex;
+  margin: 5px;
+  }
 }
 
-.tag {
-  float: left;
-  margin-right: 10px;
-  margin-top: 10px;
-}
 
 .edit {
   clear:  both;
-  margin-top: 45px;
+  margin-top: 10px;
 }
 
 .box {
@@ -292,3 +290,8 @@ li {
     }
 }
 
+.stories__select {
+  display: block;
+  margin: 0 0 0 auto;
+  width: auto;
+}
