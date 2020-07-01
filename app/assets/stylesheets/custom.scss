@@ -242,10 +242,9 @@ li {
   }
 }
 
-
 .edit {
   clear:  both;
-  margin-top: 10px;
+  margin-top: 45px;
 }
 
 .box {
@@ -294,4 +293,24 @@ li {
   display: block;
   margin: 0 0 0 auto;
   width: auto;
+}
+
+.jump-to-top {
+  position: fixed;
+  right: 20px;
+  bottom: 20px;
+  background-color: black;
+  z-index: 15;
+  font-size: 14px;
+  padding: 5px 20px;
+  border-radius: 15px;
+  text-align: center;
+  a {
+    color: white;
+  }
+}
+
+.user_name {
+  margin-top: 10px;
+  border-left: 5px solid green;
 }

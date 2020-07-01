@@ -7,7 +7,7 @@
       <% else %>
         <%= image_tag "noimage.jpg", :size => '100x100' %>
       <% end %>
-      <h1 style ="margin-top: 10px;"><%= @user.name %></h1>
+      <h1 class ="user_name"><%= @user.name %></h1>
       <%= @user.email %><br>
       <% if @user.profile? %>
         <b>ひとこと</b>
