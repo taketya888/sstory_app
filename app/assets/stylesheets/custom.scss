@@ -259,8 +259,9 @@ li {
 }
 
 .oneword {
-  background-color: transparent;
-  width:200px;
+  display: inline-block;
+  border: 1px dotted black;
+  padding: 10px;
 }
 
 .swiper-container {
