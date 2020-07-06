@@ -4,25 +4,55 @@
 		<nav>
 			<ul class="nav navbar-nav navbar-right">
 				<% if logged_in? %>
-					<li><%= link_to "作家一覧", users_path %></li>
-					<li><%= link_to "小噺作成", new_story_path %></li>
-					<li><%= link_to "小噺一覧", stories_path %></li>
+					<li>
+					 <%= link_to users_path do %>
+  				 	<i class="fa fa-user"></i> 作家一覧
+					 <% end %>
+					</li>
+					<li>
+						<%= link_to new_story_path do %>
+  						<i class="fa fa-book"></i> 小噺作成
+						<% end %>
+					</li>
+					<li>
+						<%= link_to stories_path do %>
+  						<i class="fa fa-bars"></i> 小噺一覧
+						<% end %>
+					</li>
 					<li class="dropdown">
 						<a href="#" class="dropdown-toggle" data-toggle="dropdown">
 							アカウント<b class="caret"></b>
 						</a>
 						<ul class="dropdown-menu">
-							<li><%= link_to "ユーザー情報", current_user %></li>
-							<li><%= link_to "ユーザー設定", edit_user_path(current_user) %></li>
-							<li class="divider"></li>
 							<li>
-								<%= link_to "ログアウト", logout_path, method: :delete %>
+								<%= link_to user_path(current_user) do %>
+  								<i class="fa fa-user drp"></i>ユーザー情報
+								<% end %>
+							</li>
+							<li>
+								<%= link_to edit_user_path(current_user) do %>
+  								<i class="fa fa-cog drp"></i>ユーザー設定
+								<% end %>
+							</li>
+							<li class="divider"></li>
+						  <li>
+								<%= link_to logout_path(current_user), method: :delete do %>
+  								<i class="fa fa-sign-out"></i>ログアウト
+								<% end %>
 							</li>
 						</ul>
 					</li>
 				<% else %>
-					<li><%= link_to "ホーム", root_path %></li>
-					<li><%= link_to "ログイン", login_path %></li>
+					<li>
+					<%= link_to root_path do %>
+  					<i class="fa fa-home"></i> ホーム
+					<% end %>
+					</li>
+					<li>	
+					<%= link_to login_path do %>
+  					<i class="fa fa-sign-in"></i> ログイン
+					<% end %>
+					</li>
 				<% end %>
 			</ul>
 		</nav>

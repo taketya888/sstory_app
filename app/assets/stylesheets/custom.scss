@@ -315,3 +315,63 @@ li {
   margin-top: 10px;
   border-left: 5px solid green;
 }
+
+.drp {
+  margin: 5px;
+}
+
+.button {
+  color: white;
+  background: #2c366d;
+  border: 2px solid #2c366d;
+  padding: 0 40px;
+  line-height: 40px;
+  font-size: 21px;
+  margin: 10px;
+  outline: 0;
+  box-sizing: border-box;
+  position: relative;
+  z-index: 1;
+}
+
+.button,
+.button::before,
+.button::after {
+  box-sizing: border-box;
+  transition: all 0.3;
+}
+
+.button::before,
+.button::after {
+  content: "";
+  display: block;
+  position: absolute;
+  z-index: -1;
+}
+
+.button.type1::before,
+.button.type1::after {
+  top: 0;
+  width: 50%;
+  height: 100%;
+  background: #2c366d;
+}
+
+.button.type1::before {
+  left: 0;
+}
+
+.button.type1::after {
+  right: 0;
+}
+
+.button.type1:hover {
+  color: #46BED6;
+  background: white;
+  border-color: #46BED6;
+}
+
+.button:hover.type1::before,
+.button:hover.type1::after {
+  width: 0;
+}
