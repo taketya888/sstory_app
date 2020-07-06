@@ -1,12 +1,12 @@
 <% if current_user.id != @story.user_id %>
-	<% if  current_user.likes.find_by(story_id: @story.id) %>
+	<% if current_user.likes.find_by(story_id: @story.id) %>
 		<%= link_to unlike_path(@story.id), method: :delete, remote: true do %>
 			<span class="fa fa-thumbs-o-up fa-lg like-btn-unlike"></span>
 		<% end %>
 	<% else %>
 		<%= link_to like_path(@story.id), method: :post, remote: true do %>
 			<span class="fa fa-thumbs-up fa-lg like-btn"></span>
-		<%end%>
+		<% end %>
 	<% end %>
 		<%= @story.likes.count %>
 <% end %>

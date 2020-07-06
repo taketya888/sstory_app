@@ -3,17 +3,17 @@
 <div class ="row">
   <div class="col-md-12">
     <% unless @selected_category %>
-      <%= render "shared/search" ,cont: :title_cont%>
+      <%= render "shared/search", cont: :title_cont %>
       <%= render "filter" %>
     <% end %>
-    <%= form_tag stories_path, method: :get, class: 'stories__searchForm' do %>
+    <%= form_tag stories_path, method: :get, class: "stories__searchForm" do %>
       <%= select_tag :category_id,
-          options_from_collection_for_select(Category.where(status: true), :id, :name, params[:id]),
-            {  prompt: 'タグで絞り込み',
-                class: 'form-control stories__select',
-             onchange: 'submit(this.form);'}%> 
+                     options_from_collection_for_select(Category.where(status: true), :id, :name, params[:id]),
+                     { prompt: "タグで絞り込み",
+                       class: "form-control stories__select",
+                       onchange: "submit(this.form);" } %> 
     <% end %>
-    <% if @selected_category%>
+    <% if @selected_category %>
       <b>タグ名</b>:<%= @selected_category.name %><br>
     <% end %>
     <% if @count >= 1 %>
@@ -25,19 +25,19 @@
             <th scope="col">投稿者</th>
             <th scope="col">投稿日</th>
             <th scope="col">更新日時</th>
-            <%if params[:option] == "3"%>
+            <% if params[:option] == "3" %>
               <th scope="col">いいね</th>
             <% end %>
           </tr>
         </thead>
         <tbody>
           <tr class="stories">
-            <%  @stories.where(status: true).each do |story| %>
+            <% @stories.where(status: true).each do |story| %>
               <td><%= link_to story.title, story_path(story) %></td>
               <td><%= link_to story.user.name, user_path(story.user) %></td>
-              <td><%=  story.created_at.strftime('%Y/%m/%d %H:%M') %></td>
-              <td><%=  story.updated_at.strftime('%Y/%m/%d %H:%M') %></td>
-              <%if params[:option] == "3" && story.likes_count > 0 %>
+              <td><%= story.created_at.strftime("%Y/%m/%d %H:%M") %></td>
+              <td><%= story.updated_at.strftime("%Y/%m/%d %H:%M") %></td>
+              <% if params[:option] == "3" && story.likes_count > 0 %>
                 <td><span class="fa fa-thumbs-o-up fa-lg like-btn-unlike"></span><%= story.likes_count %> </td>
               <% end %>
           </tr>

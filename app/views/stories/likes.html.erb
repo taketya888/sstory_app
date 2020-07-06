@@ -3,8 +3,8 @@
 <div class ="row">
   <aside class="col-md-12">
     <%= render "filter" %>
-    <% @likes.each do |like|%>
-      <% story = Story.where(status: true).find_by(id: like.story_id)%>
+    <% @likes.each do |like| %>
+      <% story = Story.where(status: true).find_by(id: like.story_id) %>
       <ol class="stories">
         <b><%= link_to story.user.name, user_path(story.user) %></b>
         <%= link_to story.title, story_path(story) %>

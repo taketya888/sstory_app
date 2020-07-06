@@ -1,17 +1,16 @@
-require 'test_helper'
+require "test_helper"
 
 class PasswordResetsTest < ActionDispatch::IntegrationTest
-  
   def setup
     ActionMailer::Base.deliveries.clear
     @user = users(:michael)
   end
-  
+
   test "password resets" do
     get new_password_reset_path
     assert_template "password_resets/new"
     # メールアドレスが無効
-    post password_resets_path, params: { password_reset: { email: "" }}
+    post password_resets_path, params: { password_reset: { email: "" } }
     assert_not flash.empty?
     assert_template "password_resets/new"
     #メールアドレスが有効
@@ -41,20 +40,20 @@ class PasswordResetsTest < ActionDispatch::IntegrationTest
     #無効なパスワードとパスワード確認
     patch password_reset_path(user.reset_token),
           params: { email: user.email,
-                     user: { password:              "foobaz",
-                             password_confirmation: "bardso" } }
+                   user: { password: "foobaz",
+                           password_confirmation: "bardso" } }
     assert_select "div#error_explanation"
     #パスワードが空
     patch password_reset_path(user.reset_token),
           params: { email: user.email,
-                     user: { password:              "",
-                             password_confirmation: "" } }
+                   user: { password: "",
+                           password_confirmation: "" } }
     assert_select "div#error_explanation"
     #有効なパスワードとパスワード確認
     patch password_reset_path(user.reset_token),
           params: { email: user.email,
-                     user: { password:              "foobaz",
-                             password_confirmation: "foobaz"  } }
+                   user: { password: "foobaz",
+                           password_confirmation: "foobaz" } }
     assert is_logged_in?
     assert_not flash.empty?
     assert_redirected_to user

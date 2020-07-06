@@ -1,6 +1,6 @@
 class UsersController < ApplicationController
   before_action :logged_in_user, only: [:edit, :update, :index]
-  before_action :correct_user,   only: [:edit, :update]
+  before_action :correct_user, only: [:edit, :update]
 
   def index
     @q = User.ransack(params[:q])
@@ -30,7 +30,7 @@ class UsersController < ApplicationController
       redirect_to root_url
     else
       flash.now[:danger] = "ユーザーの作成に失敗しました。"
-      render 'new'
+      render "new"
     end
   end
 
@@ -55,11 +55,11 @@ class UsersController < ApplicationController
 
   def user_params
     params.require(:user).permit(:name, :email, :password,
-                                :password_confirmation,:profile,:image)
+                                 :password_confirmation, :profile, :image)
   end
 
   def correct_user
     @user = User.find(params[:id])
-    redirect_to(root_url) unless current_user?(@user) 
+    redirect_to(root_url) unless current_user?(@user)
   end
 end
