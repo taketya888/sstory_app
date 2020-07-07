@@ -16,11 +16,20 @@ $gray-medium-light: #eaeaea;
 
 body {
   padding-top: 60px;
+  background-image: image-url("haikei.jpg");
+}
+
+.static_pages_css {
+  color: white; 
+  background-image: image-url("home.jpg");
+  background-size: 100%;
+  background-position: center;
 }
 
 section {
   overflow: auto;
   h2 {
+    color: lightgreen;
     font-size: 2.2em;
     font-family: 'Ashihara';
   }
@@ -66,7 +75,7 @@ p {
   font-size: 1.1em;
   line-height: 1.7em;
 }
-/* header */
+
 
 #logo {
   float: left;
@@ -91,7 +100,6 @@ footer {
   margin-top: 45px;
   padding-top: 5px;
   border-top: 1px solid #eaeaea;
-  color: #777;
   a {
     color: #555;
     &:hover {
@@ -175,8 +183,11 @@ aside {
 }
 
 .stories {
+  background: white;
+  border: 1px dashed black;
   list-style: none;
-  padding: 0;
+  padding: 10px;
+  padding-top: 0;
   li {
     padding: 10px 0;
     border-top: 1px solid #e8e8e8;
@@ -234,6 +245,10 @@ li {
   list-style: none;
 }
 
+ul.tagit {
+  background: #fff;
+}
+
 .tags {
   display: flex;
 .btn {
@@ -253,7 +268,6 @@ li {
     margin: 0em 0;
     font-weight: bold;
     color: black;
-    background: #fff;
     border: solid 3px #6091d3;
     border-radius: 10px;
 }
@@ -262,6 +276,7 @@ li {
   display: inline-block;
   border: 1px dotted black;
   padding: 10px;
+  background: white;
 }
 
 .swiper-container {
@@ -288,6 +303,15 @@ li {
     tr:hover {
         cursor: pointer;
     }
+}
+
+.thead-dark {
+  background: green;
+  color: white;
+}
+
+.stories_table {
+  background: #fff;
 }
 
 .stories__select {
@@ -320,8 +344,12 @@ li {
   margin: 5px;
 }
 
+.likes {
+  border-bottom: 1px solid black;
+}
+
 .button {
-  color: white;
+  color: #FFF;
   background: #2c366d;
   border: 2px solid #2c366d;
   padding: 0 40px;
@@ -338,7 +366,7 @@ li {
 .button::before,
 .button::after {
   box-sizing: border-box;
-  transition: all 0.3;
+  transition: all 0.3s;
 }
 
 .button::before,
@@ -349,29 +377,29 @@ li {
   z-index: -1;
 }
 
-.button.type1::before,
-.button.type1::after {
+.button.type3::before,
+.button.type3::after {
   top: 0;
   width: 50%;
   height: 100%;
   background: #2c366d;
 }
 
-.button.type1::before {
+.button.type3::before {
   left: 0;
 }
 
-.button.type1::after {
+.button.type3::after {
   right: 0;
 }
 
-.button.type1:hover {
+.button.type3:hover {
   color: #46BED6;
-  background: white;
+  background: #FFF;
   border-color: #46BED6;
 }
 
-.button:hover.type1::before,
-.button:hover.type1::after {
+.button:hover.type3::before,
+.button:hover.type3::after {
   width: 0;
 }

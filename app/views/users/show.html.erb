@@ -20,13 +20,13 @@
                                class: "btn btn-md btn-danger",
                                data: { confirm: "本当によろしいですか？" } %>
     <% end %>
-    <h2 style="text-align: left;">いいねした投稿一覧(<%= @user.likes.count %>)</h2>
+    <h2 class="likes">いいねした作品一覧(<%= @user.likes.count %>)</h2>
     <% @likes.each do |like| %>
       <% story = Story.where(status: true).find_by(id: like.story_id) %>
-      <ol class="stories">
-        <b><%= link_to story.user.name, user_path(story.user) %></b>
-        <%= link_to story.title, story_path(story) %>
-      </ol>
+      <ul class="stories">
+        <li>作家：<b><%= link_to story.user.name, user_path(story.user) %></b></li>
+        <li>作品：<%= link_to story.title, story_path(story) %></li>
+      </ul>
     <% end %>
   </aside>
   <div class="col-md-8">
