@@ -1,9 +1,9 @@
 <% provide(:title, "カテゴリー一覧") %>
 <h1>カテゴリー一覧</h1>
-<div class ="row">
-  <aside class="col-md-12">
-    <% @categories.each do |category| %>
-      <%= link_to category.name, stories_path(category_id: category.id), { class: "btn btn-sm btn-primary active tag" } %>
-    <% end %>
-  </aside>
+<div class="row">
+    <aside class="col-md-12">
+        <% @categories.each do |category| %>
+        <%= link_to category.name, stories_path(category_id: category.id), { class: "btn btn-sm btn-primary active tag" } %>
+        <% end %>
+    </aside>
 </div>

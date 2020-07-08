@@ -1,12 +1,10 @@
 @import "bootstrap-sprockets";
 @import "bootstrap";
-
 $gray-medium-light: #eaeaea;
-
 @mixin box_sizing {
-  -moz-box-sizing:    border-box;
+  -moz-box-sizing: border-box;
   -webkit-box-sizing: border-box;
-  box-sizing:         border-box;
+  box-sizing: border-box;
 }
 
 @font-face {
@@ -20,7 +18,7 @@ body {
 }
 
 .static_pages_css {
-  color: white; 
+  color: white;
   background-image: image-url("home.jpg");
   background-size: 100%;
   background-position: center;
@@ -76,7 +74,6 @@ p {
   font-size: 1.1em;
   line-height: 1.7em;
 }
-
 
 #logo {
   float: left;
@@ -252,25 +249,25 @@ ul.tagit {
 
 .tags {
   display: flex;
-.btn {
-  display: flex;
-  margin: 5px;
+  .btn {
+    display: flex;
+    margin: 5px;
   }
 }
 
 .edit {
-  clear:  both;
+  clear: both;
   margin-top: 45px;
 }
 
 .box {
-  　display :inline-block;
-    padding: 0.2em 1em 2em 1em;
-    margin: 0em 0;
-    font-weight: bold;
-    color: black;
-    border: solid 3px #6091d3;
-    border-radius: 10px;
+  display: inline-block;
+  padding: 0.2em 1em 2em 1em;
+  margin: 0em 0;
+  font-weight: bold;
+  color: black;
+  border: solid 3px #6091d3;
+  border-radius: 10px;
 }
 
 .oneword {
@@ -281,8 +278,8 @@ ul.tagit {
 }
 
 .swiper-container {
-   width: 1000px;
-   height: 400px;
+  width: 1000px;
+  height: 400px;
 }
 
 .img-thumbnail {
@@ -295,15 +292,15 @@ ul.tagit {
 }
 
 .posts_button {
-    a {
-        margin: 0 8px;
-    }
+  a {
+    margin: 0 8px;
+  }
 }
 
 .posts_table {
-    tr:hover {
-        cursor: pointer;
-    }
+  tr:hover {
+    cursor: pointer;
+  }
 }
 
 .thead-dark {
@@ -363,23 +360,19 @@ ul.tagit {
   z-index: 1;
 }
 
-.button,
-.button::before,
-.button::after {
+.button, .button::before, .button::after {
   box-sizing: border-box;
   transition: all 0.3s;
 }
 
-.button::before,
-.button::after {
+.button::before, .button::after {
   content: "";
   display: block;
   position: absolute;
   z-index: -1;
 }
 
-.button.type3::before,
-.button.type3::after {
+.button.type3::before, .button.type3::after {
   top: 0;
   width: 50%;
   height: 100%;
@@ -400,20 +393,31 @@ ul.tagit {
   border-color: #46BED6;
 }
 
-.button:hover.type3::before,
-.button:hover.type3::after {
+.button:hover.type3::before, .button:hover.type3::after {
   width: 0;
 }
 
 .Writer {
   a {
-  font-weight: bold;
-  font-family: cursive;
-  color: green;
-  font-style: italic;
-  background-image: linear-gradient(90deg, #ffb100 0%, #46ff00 10%, #00ffb5 20%, #0000ff 30%, #ff00ff 40%, #ff0000 50%, #ffb100 60%, #46ff00 70%, #00ffb5 80%, #0000ff 90%, #ff00ff 100%);
+    font-weight: bold;
+    font-family: cursive;
+    color: green;
+    font-style: italic;
+    background-image: linear-gradient(90deg, #ffb100 0%, #46ff00 10%, #00ffb5 20%, #0000ff 30%, #ff00ff 40%, #ff0000 50%, #ffb100 60%, #46ff00 70%, #00ffb5 80%, #0000ff 90%, #ff00ff 100%);
     -webkit-background-clip: text;
     -webkit-text-fill-color: transparent;
   }
 }
 
+.email {
+  font-family: serif;
+}
+
+ol {
+  .images {
+    border-radius: 50%;
+    vertical-align: middle;
+    width: 30%;
+    height: auto;
+  }
+}

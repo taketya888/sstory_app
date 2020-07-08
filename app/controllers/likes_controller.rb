@@ -19,7 +19,7 @@ class LikesController < ApplicationController
     end
   end
 
-  private
+    private
 
   def set_variables
     @story = Story.find(params[:story_id])

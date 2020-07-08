@@ -8,7 +8,7 @@
         <%= image_tag "noimage.jpg", :size => "130x100" %>
       <% end %>
       <h1 class ="user_name"><%= @user.name %></h1>
-      <%= @user.email %><br>
+      <div  class="email"><%= @user.email %></div>
       <% if @user.profile? %>
         <b>ひとこと</b><br>
         <div class="oneword"><%= @user.profile %></div>

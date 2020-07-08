@@ -8,9 +8,9 @@
       <% @users.each do |user| %>
         <ol>
           <% if user.image? %>
-            <%= image_tag user.image.url, size: 70, style: "border-radius: 50%" %>
+            <%= image_tag user.image.url, size: 70, class: "images" %>
           <% else %>
-            <%= image_tag "noimage.jpg", size: 70, style: "border-radius: 50%" %>
+            <%= image_tag "noimage.jpg", size: 70, class: "images" %>
           <% end %>
           <div class="Writer"><%= link_to user.name, user_path(user) %></div>
         </ol>
