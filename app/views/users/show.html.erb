@@ -24,7 +24,7 @@
     <% @likes.each do |like| %>
       <% story = Story.where(status: true).find_by(id: like.story_id) %>
       <ul class="stories">
-        <li>作家：<b><%= link_to story.user.name, user_path(story.user) %></b></li>
+        <li>作家：<span class="Writer"><%= link_to story.user.name, user_path(story.user) %></span></li>
         <li>作品：<%= link_to story.title, story_path(story) %></li>
       </ul>
     <% end %>

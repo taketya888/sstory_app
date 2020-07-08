@@ -56,6 +56,7 @@ h1 {
   letter-spacing: -2px;
   margin-bottom: 30px;
   text-align: center;
+  font-family: cursive;
 }
 
 h2 {
@@ -403,3 +404,16 @@ ul.tagit {
 .button:hover.type3::after {
   width: 0;
 }
+
+.Writer {
+  a {
+  font-weight: bold;
+  font-family: cursive;
+  color: green;
+  font-style: italic;
+  background-image: linear-gradient(90deg, #ffb100 0%, #46ff00 10%, #00ffb5 20%, #0000ff 30%, #ff00ff 40%, #ff0000 50%, #ffb100 60%, #46ff00 70%, #00ffb5 80%, #0000ff 90%, #ff00ff 100%);
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+  }
+}
+
