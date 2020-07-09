@@ -47,6 +47,7 @@ textarea {
 
 h1, h2, h3, h4, h5, h6 {
   line-height: 1;
+  font-family: "Sawarabi Mincho";
 }
 
 h1 {
@@ -54,7 +55,6 @@ h1 {
   letter-spacing: -2px;
   margin-bottom: 30px;
   text-align: center;
-  font-family: cursive;
 }
 
 h2 {
@@ -140,11 +140,19 @@ footer {
   }
 }
 
+label {
+  font-size: 30px;
+  font-family: cursive,'Ashihara';
+}
+
 .checkbox {
   margin-top: 0px;
-  margin-bottom: 10px;
+  margin-bottom: 35px;
+  position: relative;
   span {
+    position: absolute;
     margin-left: 20px;
+    font-size: 18px;
     font-weight: normal;
   }
 }
@@ -430,3 +438,11 @@ ol {
     height: auto;
   }
 }
+
+td {
+  a {
+    font-family: "Sawarabi Mincho";
+  }
+}
+
+
