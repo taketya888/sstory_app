@@ -397,8 +397,9 @@ ul.tagit {
   width: 0;
 }
 
-.Writer {
+.Writers {
   a {
+    font-size: 25px;
     font-weight: bold;
     font-family: cursive;
     color: green;
@@ -409,6 +410,14 @@ ul.tagit {
   }
 }
 
+.Writer {
+  a {
+    font-weight: bold;
+    font-family: cursive;
+    color: green;
+    font-style: italic;
+  }
+}
 .email {
   font-family: serif;
 }
