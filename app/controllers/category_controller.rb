@@ -1,5 +1,4 @@
 class CategoryController < ApplicationController
-  def index
-    @categories = Category.where(status: true).order(created_at: :desc)
+  def new
   end
 end

@@ -6,14 +6,14 @@
     <% if @count >= 1 %>
       ヒット数（<%= @count %>）
       <% @users.each do |user| %>
-        <ol>
-          <% if user.image? %>
-            <%= image_tag user.image.url, size: 70, class: "images" %>
-          <% else %>
-            <%= image_tag "noimage.jpg", size: 70, class: "images" %>
-          <% end %>
-          <div class="Writers"><%= link_to user.name, user_path(user) %></div>
-        </ol>
+      <ol>
+        <% if user.image? %>
+          <%= image_tag user.image.url, size: 70, class: "images" %>
+        <% else %>
+          <%= image_tag "noimage.jpg", size: 70, class: "images" %>
+        <% end %>
+        <div class="writers"><%= link_to user.name, user_path(user) %></div>
+      </ol>
       <% end %>
     <% else %>
       検索結果：なし

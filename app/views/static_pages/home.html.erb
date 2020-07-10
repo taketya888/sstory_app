@@ -1,37 +1,37 @@
 <% provide(:title, "ホーム") %>
 <div class="center">
   <h1>起承転結</h1>
-    <div class="swiper-container">
-      <div class="swiper-wrapper">
-        <div class="swiper-slide"><%= image_tag "zyugemu", :size => "400x400" %></div>
-        <div class="swiper-slide"><%= image_tag "meguro", :size => "400x400" %></div>
-        <div class="swiper-slide"><%= image_tag "hankonkou", :size => "400x400" %></div>
-      </div>
-      <div class="swiper-button-prev"></div>
-      <div class="swiper-button-next"></div>
+  <div class="swiper-container">
+    <div class="swiper-wrapper">
+      <div class="swiper-slide"><%= image_tag "zyugemu", class: "site_image" %></div> <%#CSSに変更%>
+      <div class="swiper-slide"><%= image_tag "meguro", class: "site_image" %></div>
+      <div class="swiper-slide"><%= image_tag "hankonkou", class: "site_image" %></div>
     </div>
-    <section>
-      <h2>サイト案内</h2>
-      <p>起承転結からなる物語を簡単に作成できます。</p>
-    </section>
-    <%= button_to "新規登録", signup_path, {method: :get,class: "button type3"} %>
+    <div class="swiper-button-prev"></div>
+    <div class="swiper-button-next"></div>
+  </div>
+  <section>
+    <h2>サイト案内</h2>
+    <p>起承転結からなる物語を簡単に作成できます。</p>
+  </section>
+  <%= link_to "新規登録", signup_path, class: "button signup_button" %>
 </div>
 
 <script>
-  var mySwiper = new Swiper ('.swiper-container', {
+  var mySwiper = new Swiper('.swiper-container', {
     autoplay: {
-    delay: 5000,
+      delay: 5000,
     },
     loop: true,
     pagination: {
-    el: '.swiper-pagination',
+      el: '.swiper-pagination',
     },
     navigation: {
-    nextEl: '.swiper-button-next',
-    prevEl: '.swiper-button-prev',
+      nextEl: '.swiper-button-next',
+      prevEl: '.swiper-button-prev',
     },
     scrollbar: {
-    el: '.swiper-scrollbar',
+      el: '.swiper-scrollbar',
     },
-    })
+  })
 </script>

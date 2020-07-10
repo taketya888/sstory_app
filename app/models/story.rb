@@ -27,7 +27,4 @@ class Story < ApplicationRecord
     end
   end
 
-  #def current_user_story?(story)
-  #story.user_id == current_user.id
-  #end
 end

@@ -285,6 +285,12 @@ ul.tagit {
   background: white;
 }
 
+.oneword-title {
+  font-family: "hannari";
+  font-size: larger;
+  font-weight: bold
+}
+
 .swiper-container {
   width: 1000px;
   height: 400px;
@@ -346,6 +352,12 @@ ul.tagit {
   border-left: 5px solid green;
 }
 
+.dropdown {
+  position:absolute; 
+  top: 0%; 
+  right: 0%;
+}
+
 .drp {
   margin: 5px;
 }
@@ -358,7 +370,7 @@ ul.tagit {
   color: #FFF;
   background: #2c366d;
   border: 2px solid #2c366d;
-  padding: 0 40px;
+  padding: 10px 40px;
   line-height: 40px;
   font-size: 21px;
   margin: 10px;
@@ -380,32 +392,32 @@ ul.tagit {
   z-index: -1;
 }
 
-.button.type3::before, .button.type3::after {
+.button.signup_button::before, .button.signup_button::after {
   top: 0;
   width: 50%;
   height: 100%;
   background: #2c366d;
 }
 
-.button.type3::before {
+.button.signup_button::before {
   left: 0;
 }
 
-.button.type3::after {
+.button.signup_button::after {
   right: 0;
 }
 
-.button.type3:hover {
+.button.signup_button:hover {
   color: #46BED6;
   background: #FFF;
   border-color: #46BED6;
 }
 
-.button:hover.type3::before, .button:hover.type3::after {
+.button:hover.signup_button::before, .button:hover.type3::after {
   width: 0;
 }
 
-.Writers {
+.writers {
   a {
     font-size: 25px;
     font-weight: bold;
@@ -418,7 +430,7 @@ ul.tagit {
   }
 }
 
-.Writer {
+.writer {
   a {
     font-weight: bold;
     font-family: cursive;
@@ -443,6 +455,11 @@ td {
   a {
     font-family: "Sawarabi Mincho";
   }
+}
+
+.site_image {
+  width: 400px;
+  height: 400px;
 }
 
 

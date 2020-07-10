@@ -9,7 +9,7 @@ class UsersController < ApplicationController
   end
 
   def show
-    @user = User.find(params[:id])
+    @user = User.find_by(id: params[:id])
     @stories = @user.stories.paginate(page: params[:page]).where(status: true).order(created_at: :desc)
     @likes = Like.where(user_id: @user.id)
   end
@@ -19,7 +19,7 @@ class UsersController < ApplicationController
   end
 
   def edit
-    @user = User.find(params[:id])
+    @user = User.find_by(id: params[:id])
   end
 
   def create
@@ -35,7 +35,7 @@ class UsersController < ApplicationController
   end
 
   def update
-    @user = User.find(params[:id])
+    @user = User.find_by(id: params[:id])
     if @user.update_attributes(user_params)
       flash[:success] = "変更を保存しました"
       redirect_to @user
@@ -46,7 +46,7 @@ class UsersController < ApplicationController
   end
 
   def destroy
-    User.find(params[:id]).destroy
+    User.find_by(id: params[:id]).destroy
     flash[:success] = "ユーザーを削除しました。"
     redirect_to root_url
   end
@@ -59,7 +59,7 @@ class UsersController < ApplicationController
   end
 
   def correct_user
-    @user = User.find(params[:id])
+    @user = User.find_by(id: params[:id])
     redirect_to(root_url) unless current_user?(@user)
   end
 end

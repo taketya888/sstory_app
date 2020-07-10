@@ -10,21 +10,21 @@
       <h1 class ="user_name"><%= @user.name %></h1>
       <div  class="email"><%= @user.email %></div>
       <% if @user.profile? %>
-        <b>ひとこと</b><br>
+        <div class="oneword-title">ひとこと</div>
         <div class="oneword"><%= @user.profile %></div>
       <% end %>
     </section>
     <% if current_user?(@user) %>
       <%= link_to "編集", edit_user_path(@user), class: "btn btn-md btn-primary" %>
       <%= link_to "削除", @user, method: :delete,
-                               class: "btn btn-md btn-danger",
-                               data: { confirm: "本当によろしいですか？" } %>
+                                  class: "btn btn-md btn-danger",
+                                   data: { confirm: "本当によろしいですか？" } %>
     <% end %>
     <h2 class="likes">いいねした作品一覧(<%= @user.likes.count %>)</h2>
     <% @likes.each do |like| %>
       <% story = Story.where(status: true).find_by(id: like.story_id) %>
       <ul class="stories">
-        <li>作家：<span class="Writer"><%= link_to story.user.name, user_path(story.user) %></span></li>
+        <li>作家：<span class="writer"><%= link_to story.user.name, user_path(story.user) %></span></li>
         <li>作品：<%= link_to story.title, story_path(story) %></li>
       </ul>
     <% end %>

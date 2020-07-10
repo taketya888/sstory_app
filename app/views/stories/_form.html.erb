@@ -1,26 +1,26 @@
 <%= form_for(@story, html: { class: "change" }) do |f| %>
-	<%= render "shared/error_messages", object: f.object %>
-	<%= f.label :タイトル %>
-	<%= f.text_field :title, class: "form-control" %>
+  <%= render "shared/error_messages", object: f.object %>
+  <%= f.label :タイトル %>
+  <%= f.text_field :title, class: "form-control" %>
 
-	<div class="story-tags-field">
-		<%= f.label "カテゴリー" %>
-		<ul id="story-tags">
-		</ul>
-		<%= hidden_field_tag :category_hidden, @category_list %>
-	</div>
+  <div class="story-tags-field">
+    <%= f.label "カテゴリー" %>
+    <ul id="story-tags">
+    </ul>
+    <%= hidden_field_tag :category_hidden, @category_list %> <%#どこで使っているか調べる%>
+  </div>
 
-	<%= f.label :起 %>
-	<%= f.text_area :start_text, class: "form-control" %>
-	
-	<%= f.label :承 %>
-	<%= f.text_area :consent_text, class: "form-control" %>
-	
-	<%= f.label :転 %>
-	<%= f.text_area :terning_text, class: "form-control" %>
-	
-	<%= f.label :結 %>
-	<%= f.text_area :finish_text, class: "form-control" %>
+  <%= f.label :起 %>
+  <%= f.text_area :start_text, class: "form-control" %>
 
-	<%= f.submit yield(:button_text), class: "btn btn-primary btn-block" %>
+  <%= f.label :承 %>
+  <%= f.text_area :consent_text, class: "form-control" %>
+
+  <%= f.label :転 %>
+  <%= f.text_area :terning_text, class: "form-control" %>
+
+  <%= f.label :結 %>
+  <%= f.text_area :finish_text, class: "form-control" %>
+
+  <%= f.submit yield(:button_text), class: "btn btn-primary btn-block" %>
 <% end %>
