@@ -12,6 +12,19 @@ $gray-medium-light: #eaeaea;
   src: font-url('AiharaHudemojiKaisho3.00.ttf') format('truetype');
 }
 
+@media screen and (max-width:768px){
+  .navbar-nav > li > a {
+    width: 200px;
+  }
+  
+}
+
+@media screen and (min-width:940px){
+  .navbar-nav > li {
+    float: left;
+  }
+}
+
 body {
   padding-top: 60px;
   background-image: image-url("haikei.jpg");
@@ -87,6 +100,7 @@ p {
   transform: translateX(-50%);
   left: 50%;
   position: absolute;
+  z-index: 3;
   font-family: 'Ashihara';
   &:hover {
     color: default;
