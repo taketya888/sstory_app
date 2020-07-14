@@ -4,13 +4,15 @@
 <head>
     <title><%= full_title(yield(:title)) %></title>
     <%= csrf_meta_tags %>
-
-    <%= render "layouts/rails_default" %>
     <%= render "layouts/shim" %>
+    
     <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css">
     <link href="https://fonts.googleapis.com/earlyaccess/hannari.css" rel="stylesheet">
     <link href="https://fonts.googleapis.com/css?family=Sawarabi+Mincho" rel="stylesheet">
     <meta name="viewport" content="width=device-width,initial-scale=1.0,minimum-scale=1.0">
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/2.0.0/jquery.min.js"></script>
+    
+    <%= render "layouts/rails_default" %>
 </head>
 
 <body class='<%= controller.controller_name %>_css'>
@@ -19,9 +21,7 @@
         <%= render "layouts/flash" %>
         <%= yield %>
         <%= render "layouts/footer" %>
-        <div class="jump-to-top">
-          <a href="#top">上に戻る</a>
-        </div>
+        <div class="pagetop">↑</div>
     </div>
 </body>
 

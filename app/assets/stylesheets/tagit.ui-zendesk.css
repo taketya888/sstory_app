@@ -8,6 +8,11 @@ ul.tagit {
     border-color: #C6C6C6;
     background: #fff;
 }
+
+ul.tagit:hover {
+  border: 1px solid blue;  
+}
+
 ul.tagit li.tagit-choice {
     -moz-border-radius: 6px;
     border-radius: 6px;

@@ -317,6 +317,7 @@ ul.tagit {
 
 .full_story {
   text-align: center;
+  padding: 0;
 }
 
 .posts_button {
@@ -346,19 +347,27 @@ ul.tagit {
   width: auto;
 }
 
-.jump-to-top {
-  position: fixed;
-  right: 20px;
-  bottom: 20px;
-  background-color: black;
-  z-index: 15;
-  font-size: 14px;
-  padding: 5px 20px;
-  border-radius: 15px;
-  text-align: center;
-  a {
-    color: white;
-  }
+.pagetop {
+	color: #fff;
+	background-color: rgba(0,0,0,0.3);
+	text-decoration: none;
+	display: none;
+	position: fixed;
+	bottom: 1rem;
+	right: 1rem;
+	font-size: 1.5rem;
+	width: 3.3rem;
+	height: 3.3rem;
+	line-height: 3.3rem;
+	border-radius: 3.3rem;
+	text-align: center;
+	cursor: pointer;
+}
+
+.pagetop:hover {
+	color: #fff !important;
+	background-color: #ed702b;
+	text-decoration: none;
 }
 
 .user_name {
@@ -427,7 +436,7 @@ ul.tagit {
   border-color: #46BED6;
 }
 
-.button:hover.signup_button::before, .button:hover.type3::after {
+.button:hover.signup_button::before, .button:hover.signup_button::after {
   width: 0;
 }
 
@@ -476,4 +485,8 @@ td {
   height: 400px;
 }
 
-
+.form-control {
+  &:hover {
+    border: 1px solid blue;
+  }
+}
