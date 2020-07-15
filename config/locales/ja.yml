@@ -1,10 +1,22 @@
 ja:
   activerecord:
     models:
+      user: ユーザー
+  attributes:
+    user:
+     name: ユーザー名
+     email: メールアドレス
+     password: パスワード
+     password_confirmation: パスワード確認
+     image: 画像
+     
+  activerecord:
+    models:
+      story: ストーリー
+  attributes:
+    story:
       title: タイトル
-    attributes:
-      event:
-        start_text: 起の文
-        consent_text: 承の文
-        terning_text: 転の文
-        finish_text: 結の文
+      start_text: 起の文
+      consent_text: 承の文
+      terning_text: 転の文
+      finish_text: 結の文
