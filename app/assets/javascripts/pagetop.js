@@ -1,5 +1,5 @@
 (function($) {
-document.addEventListener("turbolinks:load", function() {
+$(function() {
   var offset = 100;
   var duration = 500;
   $(window).scroll(function() {

@@ -3,7 +3,7 @@
   <aside class="col-md-4">
     <section class="user_info">
       <% if @user.image? %>
-        <%= link_to image_path(@user.image), data: {lightbox: 'group', turbolinks: false}  do %>
+        <%= link_to image_path(@user.image), data: {lightbox: 'group'}  do %>
           <%= image_tag(@user.image, class: "user_image img-responsive img-thumbnail") %>
         <% end %>
       <% else %>

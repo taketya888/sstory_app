@@ -1,4 +1,4 @@
-$(document).on "turbolinks:load", ->
+$ ->
     $("#story-tags").tagit
      fieldName:  "category_list"
      singleField: true

@@ -6,4 +6,3 @@
 //= require pagetop
 //= require headrock
 //= require_tree .
-//= require turbolinks
