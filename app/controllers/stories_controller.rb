@@ -2,7 +2,8 @@ class StoriesController < ApplicationController
   before_action :logged_in_user, only: [:create, :destroy]
 
   def index
-    if params[:category_id]
+    @enable_categories = Category.where(status: true)
+    if params[:category_id] && !params[:category_id].empty?
       @selected_category = Category.find(params[:category_id])
       @counts = Story.where(status: true).from_category(params[:category_id]).count
       @stories = Story.from_category(params[:category_id]).paginate(page: params[:page]).order(created_at: :desc)

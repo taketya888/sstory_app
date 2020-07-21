@@ -333,7 +333,7 @@ ul.tagit {
   }
 }
 
-.thead-dark {
+.thead-green {
   background: green;
   color: white;
 }
@@ -378,8 +378,8 @@ ul.tagit {
 
 .dropdown {
   position:absolute; 
-  top: 0%; 
-  right: 0%;
+  top: 0px; 
+  right: 15px;
 }
 
 .drp {
@@ -498,4 +498,12 @@ td {
   &:hover {
     border: 1px solid blue;
   }
+}
+
+.search_filter {
+  margin-bottom: 10px;
+}
+
+.story_search {
+  display: inline-block;
 }
