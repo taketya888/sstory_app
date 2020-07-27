@@ -1,4 +1,4 @@
-<%= form_for(@story, html: { class: "position_center" }) do |f| %>
+<%= form_for(@story, html: { id: "form",class: "topBefore" }) do |f| %>
   <%= render "shared/error_messages", object: f.object %>
   <%= f.label :タイトル %>
   <%= f.text_field :title, class: "form-control" %>
@@ -7,20 +7,20 @@
     <%= f.label "カテゴリー" %>
     <ul id="story-tags">
     </ul>
-    <%= hidden_field_tag :category_hidden, @category_list %> <%#どこで使っているか調べる%>
+    <%= hidden_field_tag :category_hidden, @category_list %> 
   </div>
 
   <%= f.label :起 %>
-  <%= f.text_area :start_text, class: "form-control" %>
+  <%= f.text_area :start_text %>
 
   <%= f.label :承 %>
-  <%= f.text_area :consent_text, class: "form-control" %>
+  <%= f.text_area :consent_text %>
 
   <%= f.label :転 %>
-  <%= f.text_area :terning_text, class: "form-control" %>
+  <%= f.text_area :terning_text %>
 
   <%= f.label :結 %>
-  <%= f.text_area :finish_text, class: "form-control" %>
+  <%= f.text_area :finish_text %>
 
-  <%= f.submit yield(:button_text), class: "btn btn-primary btn-block" %>
+  <%= f.submit yield(:button_text), id: "submit" %>
 <% end %>

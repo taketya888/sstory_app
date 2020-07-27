@@ -1,5 +1,6 @@
-<%= search_form_for @q do |f| %>
-  <i class="fa fa-search"></i>
-  <%= f.search_field cont %>
-  <%= f.submit "検索" %>
+<%= search_form_for @q, class: "search" do |f| %>
+  <%= f.search_field cont, placeholder: "フリーワードを入力"%>
+  <%= button_tag type: 'submit', class: "sbtn2" do %>
+    <i class="fa fa-search"></i>
+  <% end %>
 <% end %>

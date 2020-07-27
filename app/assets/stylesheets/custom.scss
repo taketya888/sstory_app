@@ -13,17 +13,51 @@ $gray-medium-light: #eaeaea;
   src: font-url('AiharaHudemojiKaisho3.00.ttf') format('truetype');
 }
 
-@media screen and (max-width:768px){
-  .navbar-nav > li > a {
-    width: 200px;
+@media screen and (min-width: 960px){
+   .navbar-nav {
+    float: left;
+    margin: 0;
   }
-  
-}
-
-@media screen and (min-width:940px){
   .navbar-nav > li {
     float: left;
   }
+  .navbar-nav > li > a {
+    padding-top: 15px;
+    padding-bottom: 15px;
+  }
+}
+
+
+@media screen and (max-width: 960px){
+  .navbar-left {
+    float: left !important;
+  }
+
+  .navbar-right {
+    float: none !important;
+  }
+  .navbar-right ~ .navbar-right {
+    margin-right: 0;
+  }
+}
+
+@media screen and (max-width: 960px){
+.navbar-nav > li {
+  float: none !important;
+}
+}
+
+@media screen and (max-width: 960px){
+.navbar-nav > li > a {
+    padding-top: 10px !important;
+    padding-bottom: 10px !important;
+}
+}
+
+@media screen and (max-width: 960px){
+.navbar-nav {
+    margin: 7.5px -15px !important;
+}
 }
 
 body {
@@ -377,9 +411,8 @@ ul.tagit {
 }
 
 .dropdown {
-  position:absolute; 
+  display: inline-block;
   top: 0px; 
-  right: 15px;
 }
 
 .drp {
@@ -506,4 +539,109 @@ td {
 
 .story_search {
   display: inline-block;
+}
+
+input[type="search"] {
+    padding-right: 20px;
+}
+
+.sbtn2 {
+    height: 0px;
+    position: absolute;
+    left: 188px;
+    top: -2px;
+    background: none;
+    color: #666;
+    border: none;
+    font-size: 20px;
+    outline: 0;
+}
+
+.sbtn2:hover{
+color:#7fbfff;
+}
+
+.search {
+  display: inline-block;
+}
+
+#form {
+  position: relative;
+  width: 500px;
+  margin: 50px auto 100px auto;
+}
+.topBefore{
+  text-align: center;
+input {
+  padding: 0px 15px 0px 15px;
+  
+  background: #FFF;
+  outline: none;
+  color: #726659;
+  
+  border: solid 1px #b3aca7;
+}
+}
+
+textarea {
+  width: 470px;
+  max-width: 470px;
+  height: 110px;
+  max-height: 110px;
+  padding: 15px;
+  
+  background: #FFF;
+  outline: none;
+}
+
+#submit {
+  width: 471px;
+  height: 50px;
+  padding: 0;
+  margin: -5px 0px 0px 0px;
+  
+  font-family: 'Lato', sans-serif;
+  font-size: 1.5em;
+  color: #b3aca7;
+  
+  outline:none;
+  cursor: pointer;
+  
+  border: solid 2px #b3aca7;
+   transition: all 0.3s ease-in-out;
+  -webkit-transition: all 0.3s ease-in-out;
+  -moz-transition: all 0.3s ease-in-out;
+  -ms-transition: all 0.3s ease-in-out;
+}
+
+#submit:hover {
+  color: green;
+}
+
+#submit:hover,
+#submit:focus {
+  box-shadow: 0 0.5em 0.5em -0.4em var(--hover);
+  transform: translateY(-0.25em);
+}
+
+$colors: (
+  raise: green, 
+);
+
+@each $button, $color in $colors {
+  .#{$button} {
+    --color: #{$color};
+    --hover: #{adjust-hue($color, 45deg)};
+  }
+}
+
+button {  
+  color: var(--color);
+  transition: 0.25s;
+  
+  &:hover,
+  &:focus { 
+    border-color: var(--hover);
+    color: green;
+  }
 }

@@ -4,7 +4,7 @@
   <div class="col-md-8">
     <%= render "shared/search", cont: :name_cont %>
     <% if @count >= 1 %>
-      ヒット数（<%= @count %>）
+     <p>ヒット数（<%= @count %>)</p>
       <% @users.each do |user| %>
       <ol>
         <% if user.image? %>
@@ -16,7 +16,7 @@
       </ol>
       <% end %>
     <% else %>
-      検索結果：なし
+      <p>検索結果：なし</p>
     <% end %>
   </div>
 </div>

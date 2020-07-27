@@ -54,6 +54,8 @@ GEM
       sass (>= 3.3.4)
     bootstrap-will_paginate (1.0.0)
       will_paginate
+    bourbon (7.0.0)
+      thor (~> 1.0)
     builder (3.2.4)
     byebug (9.0.6)
     carrierwave (2.1.0)
@@ -258,6 +260,7 @@ DEPENDENCIES
   bcrypt (= 3.1.12)
   bootstrap-sass (= 3.3.7)
   bootstrap-will_paginate (= 1.0.0)
+  bourbon
   byebug (= 9.0.6)
   carrierwave
   coffee-rails (= 4.2.2)
