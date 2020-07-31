@@ -3,6 +3,7 @@
 <h1>新規登録</h1>
 <div class="row">
   <div class="col-md-6 col-md-offset-3">
+    <div class = "user_form_back">
     <%= form_for(@user) do |f| %>
       <%= render "shared/error_messages", object: f.object %>
 
@@ -21,5 +22,6 @@
 
       <%= f.submit yield(:button_text), class: "btn btn-primary btn-block" %>
     <% end %>
+    </div>
   </div>
 </div>

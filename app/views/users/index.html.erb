@@ -15,6 +15,7 @@
         <div class="writers"><%= link_to user.name, user_path(user) %></div>
       </ol>
       <% end %>
+      <%= will_paginate @stories %>
     <% else %>
       <p>検索結果：なし</p>
     <% end %>

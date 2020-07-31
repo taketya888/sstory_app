@@ -13,18 +13,21 @@ class Story < ApplicationRecord
   scope :from_category, ->(category_id) { where(id: story_ids = StoryCategory.where(category_id: category_id).select(:story_id)) }
 
   def save_categories(tags)
+
     current_tags = self.categories.pluck(:name) unless self.categories.nil?
-    old_tags = current_tags - tags
-    new_tags = tags - current_tags
+      current_tags = [] if current_tags.nil?
+      tags = [] if tags.nil?
+      old_tags = current_tags - tags
+      new_tags = tags - current_tags
 
-    old_tags.each do |old_name|
-      self.categories.delete Category.find_by(name: old_name)
-    end
+      old_tags.each do |old_name|
+        self.categories.delete Category.find_by(name: old_name)
+      end
 
-    new_tags.each do |new_name|
-      story_category = Category.find_or_create_by(name: new_name)
-      self.categories << story_category
-    end
+      new_tags.each do |new_name|
+        story_category = Category.find_or_create_by(name: new_name)
+        self.categories << story_category
+      end
   end
 
 end

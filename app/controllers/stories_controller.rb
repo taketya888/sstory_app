@@ -45,6 +45,7 @@ class StoriesController < ApplicationController
       category_list = params[:category_list].split(",")
     end
     if @story.save
+      logger.debug("if文の中に入りました")
       @story.save_categories(category_list)
       flash[:success] = "保存しました"
       redirect_to story_path(@story)

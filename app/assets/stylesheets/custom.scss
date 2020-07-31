@@ -57,6 +57,17 @@ $gray-medium-light: #eaeaea;
   }
 }
 
+.navbar-default {
+    background-color: lightgreen;
+    border-color: lightgreen;
+  .navbar-nav > li > a {
+    color: white;
+    &:hover, .navbar-default .navbar-nav > li > a:focus {
+    background-color: transparent;
+    }
+  }
+}
+
 body {
   padding-top: 60px;
   background-image: image-url("haikei.jpg");
@@ -123,7 +134,7 @@ p {
 #logo {
   float: left;
   margin-right: 10px;
-  font-size: 1.7em;
+  font-size: 2em;
   color: green;
   text-transform: uppercase;
   letter-spacing: -1px;
@@ -599,7 +610,7 @@ textarea {
   margin: -5px 0px 0px 0px;
   font-family: 'Lato', sans-serif;
   font-size: 1.5em;
-  color: #b3aca7;
+  color: dimgray;
   outline: none;
   cursor: pointer;
   border: solid 2px #b3aca7;
@@ -633,4 +644,16 @@ button {
     border-color: var(--hover);
     color: green;
   }
+}
+
+.story_form_back {
+ background-color: burlywood;
+ padding: 0.5rem;
+ border-radius: 15px;
+}
+
+.user_form_back {
+  background-color: burlywood;
+  padding: 1.5rem;
+  border-radius: 15px;
 }
