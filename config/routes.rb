@@ -1,4 +1,7 @@
 Rails.application.routes.draw do
+  
+  root "static_pages#home"
+
   get "category/index" => "category#index", as: "categories"
 
   post "likes/:story_id" => "likes#like", as: "like"
@@ -12,8 +15,6 @@ Rails.application.routes.draw do
 
   post "/signup" => "users#create"
   get "/signup" => "users#new"
-
-  root "static_pages#home"
 
   resources :users
   resources :account_activations, only: [:edit]

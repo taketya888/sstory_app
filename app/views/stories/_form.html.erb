@@ -1,4 +1,5 @@
 <div class="story_form_back">
+  <div class ="post_mark"></div>
 <%= form_for(@story, html: { id: "form",class: "topBefore" }) do |f| %>
   <%= render "shared/error_messages", object: f.object %>
   <%= f.label :タイトル %>
